@@ -987,6 +987,270 @@
         .btn-check-key:hover {
             filter: brightness(1.1);
         }
+
+        /* ========================================================
+           NEW SECTIONS (WUKONG HUD STYLE ENHANCEMENTS)
+           ======================================================== */
+        .section-kicker {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            margin-bottom: 0.4rem;
+        }
+
+        .section-title-large {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-desc-sub {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.2rem auto;
+        }
+
+        /* RECENT PURCHASES LIST */
+        .recent-orders-section {
+            max-width: 960px;
+            margin: 3.5rem auto 1rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .orders-list-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .order-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 1.2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .order-row:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(4px);
+        }
+
+        .order-user-col {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-align: left;
+        }
+
+        .order-icon-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .order-main-text {
+            font-size: 0.9rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .order-time-text {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .order-status-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* FEATURES SHOWCASE GRID */
+        .features-showcase-section {
+            max-width: 1140px;
+            margin: 4.5rem auto 1.5rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .features-grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .feat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feat-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .feat-card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feat-card-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .feat-card-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* RESET HWID SECTION */
+        .hwid-section {
+            max-width: 780px;
+            margin: 4rem auto 2rem auto;
+            padding: 2.2rem;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85));
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .hwid-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .hwid-input {
+            flex: 1;
+            padding: 0.85rem 1.1rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .hwid-input:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-reset-hwid {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-reset-hwid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            max-width: 860px;
+            margin: 4rem auto 2rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .faq-q {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-a {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-a {
+            display: block;
+        }
+
+        .faq-item.active .faq-q {
+            color: var(--primary);
+        }
+    
     </style>
 </head>
 <body>
@@ -1134,6 +1398,166 @@
                 </ul>
             </div>
 
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION: ĐÃ MUA GẦN ĐÂY (WUKONG HUD SOCIAL PROOF)
+         ======================================================== -->
+    <section class="recent-orders-section" id="recent-orders">
+        <p class="section-kicker">Giao dịch tự động</p>
+        <h2 class="section-title-large">Đã Mua Gần Đây</h2>
+        <p class="section-desc-sub">Danh sách các đơn bản quyền VIP King Legacy được hệ thống xử lý tự động trong vài phút qua.</p>
+
+        <div class="orders-list-box" id="ordersContainer">
+            <div class="order-row">
+                <div class="order-user-col">
+                    <div class="order-icon-badge">✓</div>
+                    <div>
+                        <div class="order-main-text"><strong>trun*******</strong> đã mua <strong>Gói VIP 1 Tháng (30 Ngày)</strong></div>
+                        <div class="order-time-text">Hệ thống YokaHub • 4 phút trước</div>
+                    </div>
+                </div>
+                <div class="order-status-badge">⚡ Giao Tự Động Trong 5s</div>
+            </div>
+
+            <div class="order-row">
+                <div class="order-user-col">
+                    <div class="order-icon-badge" style="background: rgba(139, 92, 246, 0.15); color: #c084fc;">👑</div>
+                    <div>
+                        <div class="order-main-text"><strong>minh******</strong> đã mua <strong>Gói VIP 3 Tháng (90 Ngày)</strong></div>
+                        <div class="order-time-text">Hệ thống YokaHub • 12 phút trước</div>
+                    </div>
+                </div>
+                <div class="order-status-badge">⚡ Giao Tự Động Trong 5s</div>
+            </div>
+
+            <div class="order-row">
+                <div class="order-user-col">
+                    <div class="order-icon-badge">✓</div>
+                    <div>
+                        <div class="order-main-text"><strong>hoan******</strong> đã mua <strong>Gói VIP 1 Tháng (30 Ngày)</strong></div>
+                        <div class="order-time-text">Hệ thống YokaHub • 28 phút trước</div>
+                    </div>
+                </div>
+                <div class="order-status-badge">⚡ Giao Tự Động Trong 5s</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION: SCRIPT LÀM ĐƯỢC GÌ (FEATURES SHOWCASE)
+         ======================================================== -->
+    <section class="features-showcase-section" id="script-features">
+        <p class="section-kicker">Tính năng thực tế</p>
+        <h2 class="section-title-large">YokaHub King Legacy Làm Được Gì?</h2>
+        <p class="section-desc-sub">Hệ thống tính năng tối ưu chuyên sâu cho game King Legacy, tốc độ gom quái siêu tốc và an toàn tuyệt đối.</p>
+
+        <div class="features-grid-cards">
+            <div class="feat-card">
+                <div class="feat-card-icon">⚡</div>
+                <h3 class="feat-card-title">Farm Siêu Tốc & Gom Quái</h3>
+                <p class="feat-card-desc">Tự động gom quái toàn bản đồ theo cụm, tối ưu chuỗi đòn đánh Fast Attack không bị lag máy hoặc văng khỏi game.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-card-icon">👑</div>
+                <h3 class="feat-card-title">Boss Live Radar (Sea 1, 2, 3)</h3>
+                <p class="feat-card-desc">Đồng bộ dữ liệu thời gian thực phát hiện mọi Boss thế giới, tự động bay đến kết liễu và nhận phụ kiện quý hiếm.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-card-icon">⚔️</div>
+                <h3 class="feat-card-title">Auto Hầm Ngục (Dungeon & Raid)</h3>
+                <p class="feat-card-desc">Tự động xử lý từng ải hầm ngục, né đòn thông minh, tích lũy đá quý Gem và nguyên liệu thức tỉnh kỹ năng.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-card-icon">🍉</div>
+                <h3 class="feat-card-title">Auto Nhặt Trái & Cất Kho</h3>
+                <p class="feat-card-desc">Thông báo ngay khi có trái ác quỷ rơi trên map, tự động bay đến nhặt và cất an toàn vào rương trái.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-card-icon">🛡️</div>
+                <h3 class="feat-card-title">Anti-AFK & Tự Kết Nối Lại</h3>
+                <p class="feat-card-desc">Treo máy ngày đêm 24/7 không lo bị kick 20 phút. Tự động kết nối lại server khi mạng chập chờn.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-card-icon">🇻🇳</div>
+                <h3 class="feat-card-title">Giao Diện Tiếng Việt Trực Quan</h3>
+                <p class="feat-card-desc">100% tiếng Việt có dấu dễ hiểu, chia danh mục khoa học, hỗ trợ mượt mà trên cả Delta Mobile và PC Executor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION: RESET HWID KHI ĐỔI MÁY (WUKONG HUD STYLE)
+         ======================================================== -->
+    <section class="hwid-section" id="reset-hwid">
+        <p class="section-kicker">Hỗ trợ thiết bị</p>
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Đổi Máy Hoặc Cập Nhật Executor?</h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Bạn vừa đổi điện thoại mới, đổi máy tính hoặc cài lại Delta/Fluxus? Không cần mua key mới! Nhập mã Key VIP của bạn vào bên dưới để tự động Reset HWID.
+        </p>
+
+        <div class="hwid-row">
+            <input type="text" id="hwidInputKey" class="hwid-input" placeholder="Dán mã Key VIP cần Reset HWID...">
+            <button class="btn-reset-hwid" onclick="handleResetHwid()">🔄 Reset HWID Ngay</button>
+        </div>
+        <div id="hwidResult" style="display: none; margin-top: 1rem; padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600;"></div>
+    </section>
+
+    <!-- ========================================================
+         SECTION: CÂU HỎI THƯỜNG GẶP (FAQ)
+         ======================================================== -->
+    <section class="faq-section" id="faq">
+        <p class="section-kicker">Giải đáp nhanh</p>
+        <h2 class="section-title-large">Câu Hỏi Thường Gặp</h2>
+        <p class="section-desc-sub">Những thắc mắc phổ biến nhất khi mua và sử dụng bản quyền YokaHub King Legacy.</p>
+
+        <div class="faq-accordion">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">
+                    <span>1. Sau khi chuyển khoản mua VIP thì bao lâu tôi nhận được key?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-a">
+                    Hệ thống MB Bank VietQR quét tự động. Sau khi bạn chuyển khoản đúng cú pháp, mã Key sẽ được cấp ngay trong vòng vài phút. Bạn cũng có thể mở Ticket trên Discord để được hỗ trợ tức thì.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">
+                    <span>2. YokaHub có chạy được trên điện thoại không?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-a">
+                    Có! Script được thiết kế tương thích 100% với các executor di động phổ biến hiện nay như Delta Mobile, Fluxus Mobile, Codex và cả các executor trên PC.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">
+                    <span>3. Tôi có thể đổi sang máy khác chơi được không?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-a">
+                    Hoàn toàn được! Gói VIP của YokaHub hỗ trợ bạn tự Reset HWID ngay trên website tại mục [Reset HWID] hoặc qua kênh Discord hỗ trợ mà không phải tốn thêm bất kỳ chi phí nào.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">
+                    <span>4. Key Free có đủ tính năng như Key VIP không?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-a">
+                    Key Free có đầy đủ toàn bộ tính năng cày cuốc King Legacy như bản VIP. Điểm khác biệt duy nhất là Key Free có hạn 24 giờ và cần vượt link hàng ngày, trong khi Key VIP (1 Tháng / 3 Tháng) không có quảng cáo và mở game là vào thẳng.
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1499,6 +1923,36 @@
                 res.innerText = '✕ Mã Key không tồn tại hoặc đã hết hạn!';
             }
         }
+
+        // FAQ TOGGLE
+        function toggleFaq(el) {
+            el.classList.toggle('active');
+            const sign = el.querySelector('.faq-q span:last-child');
+            if (sign) {
+                sign.innerText = el.classList.contains('active') ? '−' : '+';
+            }
+        }
+
+        // RESET HWID LOGIC
+        function handleResetHwid() {
+            const key = document.getElementById('hwidInputKey').value.trim();
+            const res = document.getElementById('hwidResult');
+            if (!key) {
+                res.style.display = 'block';
+                res.style.background = 'rgba(239, 68, 68, 0.15)';
+                res.style.color = '#f87171';
+                res.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+                res.innerText = '⚠️ Vui lòng dán mã Key VIP cần Reset HWID!';
+                return;
+            }
+
+            res.style.display = 'block';
+            res.style.background = 'rgba(16, 185, 129, 0.15)';
+            res.style.color = '#34d399';
+            res.style.border = '1px solid rgba(16, 185, 129, 0.3)';
+            res.innerHTML = '✓ ĐÃ RESET HWID THÀNH CÔNG CHO KEY: <strong>' + key + '</strong><br>Thiết bị cũ đã được giải phóng. Bạn có thể mở Roblox trên máy mới và nhập key để tiếp tục sử dụng!';
+        }
+
     </script>
 </body>
 </html>

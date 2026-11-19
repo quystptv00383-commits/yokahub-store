@@ -3,1328 +3,1462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YokaHub Store • Cổng Mua Key VIP & Vượt Link Lấy Key Free King Legacy</title>
-    <meta name="description" content="Website chính thức phân phối bản quyền YokaHub King Legacy: Mua Key VIP Vĩnh Viễn, Key Tháng và Cổng Vượt Link lấy Key Free 24h kèm Video hướng dẫn chi tiết.">
-    
-    <!-- Google Fonts -->
+    <title>YokaHub • Bảng Giá & Bản Quyền King Legacy Script</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
-            --bg-dark: #0a0d14;
-            --card-bg: rgba(18, 24, 38, 0.85);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --primary: #f59e0b;
-            --primary-hover: #d97706;
+            --bg-main: #090a0f;
+            --bg-card: #12131a;
+            --bg-card-hover: #181924;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --text-main: #ffffff;
+            --text-muted: #8e95a5;
+            --text-dim: #5c6270;
+            --accent-green: #00c274;
+            --accent-green-glow: rgba(0, 194, 116, 0.25);
+            --accent-purple: #7952f5;
             --accent-cyan: #06b6d4;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --success: #10b981;
-            --danger: #ef4444;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --radius-lg: 18px;
-            --radius-md: 12px;
+            --accent-gold: #fbbf24;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 8px;
+            --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font);
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
             min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        /* Subtle glowing radial background lights like projectreal.gg */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(121, 82, 245, 0.12) 0%, rgba(6, 182, 212, 0.05) 45%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Navigation */
+        /* Navigation Bar */
         nav {
-            padding: 1.25rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(16px);
-            background: rgba(10, 13, 20, 0.8);
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .nav-content {
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: rgba(9, 10, 15, 0.75);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 2rem;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            max-width: 100%;
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            color: #fff;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.25rem;
             letter-spacing: -0.5px;
         }
 
-        .logo-badge {
-            background: linear-gradient(135deg, var(--primary), #ef4444);
-            color: #fff;
+        .brand-badge {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--accent-gold);
             font-size: 0.72rem;
-            font-weight: 800;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            text-transform: uppercase;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
             align-items: center;
+            gap: 1.8rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-sub);
+            color: var(--text-muted);
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
-            font-size: 0.95rem;
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-main);
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
         }
 
-        .btn-nav-discord {
-            background: #5865F2;
-            color: #fff !important;
-            padding: 0.55rem 1.2rem;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700 !important;
-            transition: transform 0.2s, background 0.2s !important;
+        .btn-nav-cta {
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
-        .btn-nav-discord:hover {
-            background: #4752c4;
-            transform: translateY(-2px);
+        .btn-nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
-            padding: 4rem 0 2.5rem;
+            position: relative;
+            z-index: 1;
             text-align: center;
+            padding: 4.5rem 1.5rem 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.35);
-            color: var(--accent-cyan);
-            padding: 0.4rem 1.2rem;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
             border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
         }
 
         .hero h1 {
             font-size: 3.2rem;
             font-weight: 800;
-            letter-spacing: -1.5px;
-            margin-bottom: 1.2rem;
+            letter-spacing: -1.2px;
             line-height: 1.15;
-            background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+            margin-bottom: 1.2rem;
+            background: linear-gradient(180deg, #ffffff 40%, #9ca3af 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            color: var(--text-sub);
-            font-size: 1.15rem;
-            max-width: 720px;
+            font-size: 1.08rem;
+            color: var(--text-muted);
+            max-width: 620px;
             margin: 0 auto 2.5rem;
+            line-height: 1.6;
         }
 
-        .hero-cta {
+        /* Script Loader Bar */
+        .loader-bar {
+            background: #0f1017;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 10px 16px;
+            max-width: 720px;
+            margin: 0 auto 3.5rem;
             display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-cta-vip {
-            background: linear-gradient(135deg, var(--primary), #ea580c);
-            color: #fff;
-            padding: 0.9rem 2rem;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.05rem;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-cta-vip:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 30px rgba(245, 158, 11, 0.45);
-        }
-
-        .btn-cta-free {
-            background: rgba(6, 182, 212, 0.15);
-            border: 1.5px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            padding: 0.9rem 2rem;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.05rem;
-            transition: all 0.2s;
-        }
-
-        .btn-cta-free:hover {
-            background: var(--accent-cyan);
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
-        }
-
-        /* Script Box */
-        .script-box {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 215, 0, 0.25);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin: 3rem 0;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
-
-        .script-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8rem;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
-        .script-code {
-            background: #07090e;
-            border: 1px solid var(--card-border);
-            padding: 1rem 1.2rem;
-            border-radius: 10px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.88rem;
-            color: var(--accent-cyan);
-            word-break: break-all;
+        .loader-code {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #38bdf8;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: left;
         }
 
-        .btn-copy {
-            background: var(--primary);
-            color: #000;
-            border: none;
-            padding: 0.6rem 1.4rem;
-            border-radius: 8px;
+        .btn-copy-code {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 0.78rem;
             font-weight: 700;
-            font-size: 0.88rem;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
 
-        .btn-copy:hover {
-            background: var(--primary-hover);
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            margin: 4.5rem 0 2.5rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.6rem;
-        }
-
-        .section-title p {
-            color: var(--text-sub);
-            font-size: 1.05rem;
+        .btn-copy-code:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         /* Pricing Grid */
+        .pricing-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1.5rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
         }
 
-        .pricing-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 2.2rem;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.25s, border-color 0.25s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary);
-            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
-        }
-
-        .badge-bestseller {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--primary), #ef4444);
-            color: #fff;
-            padding: 0.3rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.45rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-card .desc {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-card .price {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 1.8rem;
-            display: flex;
-            align-items: baseline;
-            gap: 0.4rem;
-        }
-
-        .pricing-card .price span {
-            font-size: 0.95rem;
-            color: var(--text-sub);
-            font-weight: 500;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            font-size: 0.95rem;
-            margin-bottom: 0.85rem;
-            color: #cbd5e1;
-        }
-
-        .features-list li svg {
-            width: 18px;
-            height: 18px;
-            color: var(--success);
-            flex-shrink: 0;
-        }
-
-        .btn-card {
-            width: 100%;
-            padding: 0.9rem;
-            border-radius: 10px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-        }
-
-        .btn-card-vip {
-            background: linear-gradient(135deg, var(--primary), #ea580c);
-            color: #fff;
-        }
-
-        .btn-card-vip:hover {
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-card-free {
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-        }
-
-        .btn-card-free:hover {
-            background: var(--accent-cyan);
-            color: #000;
-        }
-
-        /* Free Key & Video Showcase Section */
-        .getkey-container {
-            background: linear-gradient(180deg, rgba(14, 20, 32, 0.95) 0%, rgba(10, 14, 22, 0.95) 100%);
-            border: 1.5px solid rgba(6, 182, 212, 0.35);
-            border-radius: 22px;
-            padding: 2.5rem;
-            margin-bottom: 4rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .getkey-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: start;
-        }
-
-        @media (max-width: 900px) {
-            .getkey-grid {
+        @media (max-width: 960px) {
+            .pricing-grid {
                 grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
             }
             .hero h1 {
                 font-size: 2.4rem;
             }
         }
 
-        /* Video Showcase */
-        .video-box {
-            background: #07090e;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        }
-
-        .video-header {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.8rem 1.2rem;
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .video-header span {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .video-player-wrapper {
+            flex-direction: column;
             position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            background: #000;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
         }
 
-        .video-player-wrapper video,
-        .video-player-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .pricing-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
         }
 
-        /* Animated Walkthrough Screen */
-        .tutorial-steps-card {
-            background: rgba(18, 24, 38, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-top: 1.2rem;
+        .pricing-card.featured {
+            border-color: rgba(121, 82, 245, 0.4);
+            background: linear-gradient(180deg, #161724 0%, #101118 100%);
+            box-shadow: 0 0 30px rgba(121, 82, 245, 0.15);
         }
 
-        .step-item {
-            display: flex;
-            gap: 1rem;
+        .pricing-card.featured:hover {
+            border-color: rgba(121, 82, 245, 0.7);
+            box-shadow: 0 20px 50px rgba(121, 82, 245, 0.25);
+        }
+
+        .card-pill {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            width: fit-content;
             margin-bottom: 1.2rem;
-            align-items: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .step-item:last-child {
-            margin-bottom: 0;
+        .pill-free {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
         }
 
-        .step-num {
-            background: var(--accent-cyan);
+        .pill-month {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .pill-lifetime {
+            background: rgba(121, 82, 245, 0.2);
+            color: #c4b5fd;
+            border: 1px solid rgba(121, 82, 245, 0.4);
+        }
+
+        .card-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            min-height: 40px;
+            line-height: 1.45;
+        }
+
+        .card-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 1.8rem;
+            letter-spacing: -1px;
+        }
+
+        .card-price span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0;
+        }
+
+        /* Buttons in pricing */
+        .btn-card {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-free {
+            background: #1f212d;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-free:hover {
+            background: #2a2c3a;
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-month {
+            background: #fff;
             color: #000;
-            width: 28px;
-            height: 28px;
+        }
+
+        .btn-month:hover {
+            background: #e2e8f0;
+            transform: translateY(-1px);
+        }
+
+        .btn-lifetime {
+            background: linear-gradient(135deg, #7952f5 0%, #6366f1 100%);
+            color: #fff;
+            box-shadow: 0 4px 18px rgba(121, 82, 245, 0.35);
+        }
+
+        .btn-lifetime:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        /* Features list */
+        .features-list {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.86rem;
+            color: #d1d5db;
+            line-height: 1.4;
+        }
+
+        .feature-item.muted {
+            color: var(--text-dim);
+        }
+
+        .feature-icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 0.88rem;
-            flex-shrink: 0;
+            font-size: 0.72rem;
             margin-top: 2px;
         }
 
-        .step-content h4 {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.2rem;
+        .icon-check {
+            background: rgba(0, 194, 116, 0.15);
+            color: var(--accent-green);
         }
 
-        .step-content p {
-            font-size: 0.86rem;
-            color: var(--text-sub);
-            line-height: 1.45;
+        .icon-cross {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-dim);
         }
 
-        /* Action Panel for Free Key */
-        .action-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 1.4rem;
-        }
-
-        .action-highlight-box {
-            background: rgba(6, 182, 212, 0.08);
-            border: 1.5px dashed var(--accent-cyan);
-            border-radius: 16px;
-            padding: 1.6rem;
-            text-align: center;
-        }
-
-        .btn-bypass-link {
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            color: #fff;
-            padding: 1.1rem 1.5rem;
-            border-radius: 14px;
-            font-size: 1.15rem;
-            font-weight: 800;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
-            transition: all 0.25s;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-        }
-
-        .btn-bypass-link:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.55);
-        }
-
-        .key-reveal-box {
-            background: #080a0f;
-            border: 1px solid var(--success);
-            border-radius: 12px;
-            padding: 1.2rem;
-            text-align: center;
-        }
-
-        .key-val {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: 1px;
-            margin: 0.6rem 0;
-            word-break: break-all;
-        }
-
-        /* Key Checker */
-        .checker-box {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 2.2rem;
-            margin-bottom: 4rem;
-        }
-
-        .checker-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 650px;
-            margin: 1.5rem auto 0;
-        }
-
-        .checker-input {
-            flex-grow: 1;
-            background: #07090e;
-            border: 1px solid var(--card-border);
-            color: #fff;
-            padding: 0.85rem 1.2rem;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-family: 'JetBrains Mono', monospace;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .checker-input:focus {
-            border-color: var(--accent-cyan);
-        }
-
-        /* Modal Payment VietQR */
-        .modal-overlay {
+        /* ========================================================
+           EXACT PROJECTREAL MODAL ("CHỌN BƯỚC XÁC MINH")
+           ======================================================== */
+        .modal-backdrop {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.82);
-            backdrop-filter: blur(10px);
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
-        .modal-card {
-            background: #0f1422;
-            border: 1.5px solid rgba(255, 215, 0, 0.35);
-            border-radius: 20px;
+        .modal-backdrop.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-window {
+            background: #111218;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 22px;
             width: 100%;
-            max-width: 460px;
-            padding: 2rem;
-            text-align: center;
+            max-width: 530px;
+            padding: 1.75rem;
             position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-            animation: modalFadeIn 0.3s ease-out;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+            transform: scale(0.96);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+        .modal-backdrop.show .modal-window {
+            transform: scale(1);
         }
 
-        .modal-close {
+        /* Top Header */
+        .modal-header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 1.4rem;
+        }
+
+        .btn-close-modal {
             position: absolute;
-            top: 1rem;
-            right: 1.2rem;
-            font-size: 1.6rem;
-            color: var(--text-sub);
-            background: none;
+            left: 0;
+            top: 0;
+            background: transparent;
             border: none;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .btn-close-modal:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .modal-title {
+            font-size: 1.28rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.3px;
+        }
+
+        .modal-subtitle {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            max-width: 420px;
+            margin: 0 auto 1.1rem;
+        }
+
+        /* Stepper */
+        .modal-stepper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-dim);
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .step-item.active {
+            color: #fff;
+        }
+
+        .step-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: inherit;
+        }
+
+        .step-item.active .step-num {
+            background: #fff;
+            color: #000;
+        }
+
+        .step-item.done .step-num {
+            background: var(--accent-green);
+            color: #fff;
+        }
+
+        /* Promo Card Inside Modal */
+        .modal-promo-banner {
+            background: linear-gradient(135deg, rgba(30, 27, 50, 0.8) 0%, rgba(18, 19, 28, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .promo-preview-box {
+            width: 140px;
+            height: 95px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #f43f5e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mini-card-row {
+            display: flex;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .mini-card {
+            flex: 1;
+            height: 38px;
+            background: rgba(15, 17, 26, 0.85);
+            border-radius: 4px;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            padding: 3px;
+            justify-content: space-between;
+        }
+
+        .mini-card-bar {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            width: 70%;
+        }
+
+        .mini-card-btn {
+            height: 5px;
+            background: #38bdf8;
+            border-radius: 2px;
+            width: 90%;
+        }
+
+        .promo-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .promo-title {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.3rem;
+            line-height: 1.25;
+        }
+
+        .promo-desc {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 0.7rem;
+        }
+
+        .btn-promo-action {
+            background: #fff;
+            color: #000;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-promo-action:hover {
+            background: #e2e8f0;
+            transform: scale(1.02);
+        }
+
+        /* Providers list */
+        .provider-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .provider-card {
+            background: #171822;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .provider-card:hover {
+            background: #1e1f2c;
+            border-color: rgba(255, 255, 255, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .provider-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .provider-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .logo-workink {
+            background: #00c274;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 194, 116, 0.3);
+        }
+
+        .logo-lootlabs {
+            background: #6c47ff;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(108, 71, 255, 0.3);
+        }
+
+        .provider-info {
+            text-align: left;
+        }
+
+        .provider-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.2rem;
+        }
+
+        .provider-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .provider-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 1px 7px;
+            border-radius: 6px;
+        }
+
+        .provider-sub {
+            font-size: 0.77rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .provider-arrow {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.2s, transform 0.2s;
+            padding-left: 8px;
+        }
+
+        .provider-card:hover .provider-arrow {
+            color: #fff;
+            transform: translateX(2px);
+        }
+
+        /* Modal Footer */
+        .modal-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-help-link {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
             cursor: pointer;
         }
 
-        .qr-wrapper {
-            background: #fff;
-            padding: 1rem;
+        .modal-help-link:hover {
+            color: #fff;
+        }
+
+        .btn-modal-cancel {
+            width: 100%;
+            background: #1b1c26;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 0.75rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-modal-cancel:hover {
+            background: #252735;
+            color: #fff;
+        }
+
+        /* Step 2 in Modal: Verification In Progress */
+        .step-verify-box {
+            display: none;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .verify-spinner {
+            width: 52px;
+            height: 52px;
+            border: 3px solid rgba(255, 255, 255, 0.08);
+            border-top-color: var(--accent-cyan);
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+            margin: 0 auto 1.2rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .verify-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+
+        .verify-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 420px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.5;
+        }
+
+        .key-unlocked-box {
+            display: none;
+            background: rgba(0, 194, 116, 0.08);
+            border: 1.5px solid rgba(0, 194, 116, 0.35);
             border-radius: 14px;
-            margin: 1.4rem auto;
+            padding: 1.25rem;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .key-text-display {
+            font-family: var(--font-mono);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            background: #0b0d14;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px dashed rgba(0, 194, 116, 0.5);
+            margin: 0.8rem 0;
+            word-break: break-all;
+        }
+
+        .btn-copy-key-now {
+            width: 100%;
+            background: var(--accent-green);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy-key-now:hover {
+            filter: brightness(1.1);
+        }
+
+        /* VietQR Payment Modal */
+        .qr-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px;
             display: inline-block;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            margin: 1rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .qr-wrapper img {
-            width: 220px;
-            height: 220px;
+        .qr-card img {
             display: block;
+            width: 210px;
+            height: 210px;
+            object-fit: contain;
         }
 
-        .bank-info-box {
-            background: rgba(0, 0, 0, 0.4);
+        .bank-info-grid {
+            background: #181924;
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1rem;
-            margin-bottom: 1.2rem;
             text-align: left;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.84rem;
         }
 
-        .info-row {
+        .bank-info-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.5rem;
         }
 
-        .info-row:last-child {
-            margin-bottom: 0;
+        .bank-info-row span:first-child {
+            color: var(--text-muted);
         }
 
-        .info-row span:first-child {
-            color: var(--text-sub);
-        }
-
-        .info-row span:last-child {
+        .bank-info-row span:last-child {
             color: #fff;
             font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
 
-        .copy-pill {
-            background: #1e293b;
-            color: #38bdf8;
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            margin-left: 0.4rem;
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 0;
-            border-top: 1px solid var(--card-border);
+        /* Checker Section */
+        .checker-section {
+            max-width: 680px;
+            margin: 0 auto 5rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             text-align: center;
-            color: var(--text-sub);
-            font-size: 0.9rem;
+        }
+
+        .checker-input-row {
+            display: flex;
+            gap: 10px;
+            margin: 1.2rem 0;
+        }
+
+        .checker-input {
+            flex: 1;
+            background: #0c0d14;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+        }
+
+        .checker-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-check-key {
+            background: var(--accent-cyan);
+            color: #000;
+            font-weight: 700;
+            padding: 0 20px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-check-key:hover {
+            filter: brightness(1.1);
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVBAR -->
     <nav>
-        <div class="container nav-content">
-            <a href="#" class="logo">
-                👑 YokaHub <span class="logo-badge">V2.4</span>
+        <div class="nav-inner">
+            <a href="#" class="brand">
+                <span>👑 YokaHub</span>
+                <span class="brand-badge">King Legacy v2.4</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#features">Tính Năng</a></li>
-                <li><a href="#pricing">Bảng Giá VIP</a></li>
-                <li><a href="#get-key" style="color: var(--accent-cyan); font-weight: 700;">🔗 Vượt Link Lấy Key</a></li>
-                <li><a href="#video-guide">🎬 Video Hướng Dẫn</a></li>
-                <li><a href="#key-checker">Tra Cứu Key</a></li>
-                <li>
-                    <a href="https://discord.gg/8XzH9QxP" target="_blank" class="btn-nav-discord">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                        Vào Discord
-                    </a>
-                </li>
+                <li><a href="#pricing" class="active">Bảng giá</a></li>
+                <li><a href="#" onclick="openVerifyModal(); return false;">Lấy Key Free</a></li>
+                <li><a href="#key-checker">Kiểm tra Key</a></li>
+                <li><a href="https://discord.gg/your-discord-link" target="_blank">Discord Hỗ Trợ</a></li>
             </ul>
+            <button class="btn-nav-cta" onclick="openVerifyModal()">Nhận Key Ngay</button>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <header class="hero">
-            <div class="hero-badge">⚡ HỆ THỐNG SCRIPT & BẢN QUYỀN KING LEGACY 2026</div>
-            <h1>Bản Quyền YokaHub King Legacy<br>Chính Hãng • Siêu Tốc • An Toàn</h1>
-            <p>Tối ưu hóa săn Hydra, Kraken, Auto Sea 1 - 2 - 3. Hỗ trợ mua gói VIP không quảng cáo hoặc vượt link nhận Key Free 24h kèm video hướng dẫn từng bước.</p>
-            
-            <div class="hero-cta">
-                <a href="#pricing" class="btn-cta-vip">👑 Mua Key VIP (Không Quảng Cáo)</a>
-                <a href="#get-key" class="btn-cta-free">🔗 Vượt Link Lấy Key Free (24h)</a>
-                <a href="#video-guide" class="btn-cta-free" style="border-color: #8b5cf6; color: #a78bfa;">🎬 Xem Video Cách Vượt Link</a>
-            </div>
-        </header>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">
+            <span>✨</span> BẢNG GIÁ MINH BẠCH & TỰ ĐỘNG
+        </div>
+        <h1>Chọn gói bản quyền<br>phù hợp với bạn</h1>
+        <p>Sử dụng miễn phí hàng ngày qua các bước xác minh hoặc nâng cấp VIP để trải nghiệm mượt mà không quảng cáo.</p>
 
-        <!-- Script Loader Box -->
-        <div class="script-box">
-            <div class="script-header">
-                <div style="font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>📜</span> Mã Chạy Script YokaHub (Dán vào Executor Real / Delta / Wave / Fluxus):
-                </div>
-                <button onclick="copyScriptLoader()" class="btn-copy">📋 Sao Chép Script</button>
-            </div>
-            <div class="script-code">
+        <!-- SCRIPT LOADER BAR -->
+        <div class="loader-bar">
+            <div class="loader-code" id="loaderScript">
                 loadstring(game:HttpGet("https://gist.githubusercontent.com/quystptv00383-commits/7dde495f53b84afb7cf64c06c15dfe2d/raw/YokaHub_Commercial_Loader.luau"))()
             </div>
-        </div>
-
-        <!-- PRICING SECTION -->
-        <section id="pricing">
-            <div class="section-title">
-                <h2>💎 Bảng Giá Bản Quyền YokaHub</h2>
-                <p>Chọn gói VIP để trải nghiệm vĩnh viễn không quảng cáo hoặc dùng Free hàng ngày.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <!-- Free Key -->
-                <div class="pricing-card">
-                    <h3>Gói Free (24 Giờ)</h3>
-                    <p class="desc">Dành cho học sinh, sinh viên trải nghiệm</p>
-                    <div class="price">0đ <span>/ 24 Giờ</span></div>
-                    <ul class="features-list">
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Full tính năng săn Hydra & Kraken
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Auto chuyển phòng & chuyển Sea 1-2-3
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            <strong>Vượt link 1 lần mỗi ngày để ủng hộ Admin</strong>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Có video hướng dẫn cách vượt link chi tiết
-                        </li>
-                    </ul>
-                    <a href="#get-key" class="btn-card btn-card-free">🔗 Vượt Link Lấy Key Free</a>
-                </div>
-
-                <!-- VIP Month -->
-                <div class="pricing-card">
-                    <h3>VIP Tháng (30 Ngày)</h3>
-                    <p class="desc">Cày cuốc chuyên nghiệp không ngắt quãng</p>
-                    <div class="price">50.000đ <span>/ 30 Ngày</span></div>
-                    <ul class="features-list">
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            <strong>KHÔNG CẦN VƯỢT LINK QUẢNG CÁO</strong>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Tự động lưu mã máy, mở game là vào thẳng
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Cấp Role 💎 <strong>Yoka VIP</strong> tại Discord
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Ưu tiên cập nhật sớm nhất khi game update
-                        </li>
-                    </ul>
-                    <button onclick="triggerPayment('VIP Tháng (30 Ngày)', 50000)" class="btn-card btn-card-vip">💳 Mua Gói Tháng (50K)</button>
-                </div>
-
-                <!-- VIP Lifetime -->
-                <div class="pricing-card featured">
-                    <div class="badge-bestseller">Gói Bán Chạy Nhất</div>
-                    <h3>VIP Vĩnh Viễn</h3>
-                    <p class="desc">Mua 1 lần • Sở hữu trọn đời</p>
-                    <div class="price">120.000đ <span>/ Trọn Đời</span></div>
-                    <ul class="features-list">
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            <strong>Tất cả quyền lợi của gói VIP Tháng</strong>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Bản quyền Vĩnh Viễn không bao giờ hết hạn
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Hỗ trợ đổi / reset HWID miễn phí khi đổi máy
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                            Kênh chat 1-1 riêng với Founder Yoka
-                        </li>
-                    </ul>
-                    <button onclick="triggerPayment('VIP Vĩnh Viễn (Lifetime)', 120000)" class="btn-card btn-card-vip" style="background: linear-gradient(135deg, #10b981, #059669);">👑 Mua Vĩnh Viễn (120K)</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- FREE KEY & VIDEO GUIDE SECTION -->
-        <section id="get-key" class="getkey-container">
-            <div class="section-title" style="margin: 0 0 2rem;">
-                <h2 style="color: var(--accent-cyan);">🔗 Cổng Vượt Link Lấy Key Free 24h & Video Hướng Dẫn</h2>
-                <p>Thực hiện vượt link nhẹ nhàng khoảng 15 giây để nhận Key Free 24h hoàn toàn miễn phí!</p>
-            </div>
-
-            <div class="getkey-grid">
-                <!-- Col 1: Action Panel to Bypass Link -->
-                <div class="action-panel">
-                    <div class="action-highlight-box">
-                        <div style="font-size: 0.95rem; color: var(--text-sub); margin-bottom: 0.5rem;">CỔNG VƯỢT LINK KIẾM KEY MIỄN PHÍ:</div>
-                        <h3 style="font-size: 1.35rem; color: #fff; margin-bottom: 1.2rem;">Bấm nút bên dưới để bắt đầu vượt link</h3>
-                        
-                        <a href="https://loot-link.com/s?yoka_free_key_portal" target="_blank" onclick="onBypassClicked()" class="btn-bypass-link">
-                            <span>🚀</span> BẤM VÀO ĐÂY ĐỂ VƯỢT LINK LẤY KEY
-                        </a>
-                        <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.8rem;">
-                            (Sau khi hoàn thành 2 bước trên trang quảng cáo, bạn sẽ nhận được mã key)
-                        </div>
-                    </div>
-
-                    <!-- Sau khi vuot link: Nhan key -->
-                    <div id="afterBypassBox" class="key-reveal-box">
-                        <div style="font-size: 0.85rem; color: var(--success); font-weight: 700;">✓ MÃ KEY FREE HÔM NAY CỦA BẠN:</div>
-                        <div id="freeKeyVal" class="key-val">YOKA-FREE-2026-KING-LEGACY</div>
-                        <button onclick="copyFreeKey()" class="btn-copy" style="width: 100%; padding: 0.75rem; background: var(--success); color: #fff;">
-                            📋 Sao Chép Mã Key Để Dán Vào Roblox
-                        </button>
-                    </div>
-
-                    <!-- Ho tro nhanh neu ket link -->
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.2rem; font-size: 0.88rem; color: var(--text-sub);">
-                        <strong style="color: #fff;">💡 Mẹo vượt link không bị lỗi:</strong>
-                        <ul style="margin: 0.5rem 0 0 1.2rem;">
-                            <li>Tắt các tiện ích chặn quảng cáo (AdBlock) để trang tải nút Get Link.</li>
-                            <li>Nếu gặp quảng cáo "Discover Articles", bấm vào rồi bấm dấu <strong>X</strong> đóng lại sau 3 giây.</li>
-                            <li>Không cần cài đặt bất kỳ file .exe hay phần mềm lạ nào vào máy!</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Col 2: Video Player & Step-by-Step Guide -->
-                <div id="video-guide" class="video-box">
-                    <div class="video-header">
-                        <span>🎬 VIDEO CÁCH VƯỢT LINK (HƯỚNG DẪN TỪNG BƯỚC)</span>
-                        <span style="font-size: 0.78rem; color: #cbd5e1; background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 6px;">Thời lượng: 30s</span>
-                    </div>
-
-                    <!-- Video Tabs: Video Mo Phong & Video Mp4 -->
-                    <div style="display: flex; background: rgba(0,0,0,0.4); border-bottom: 1px solid var(--card-border);">
-                        <button id="btnTabSim" onclick="switchVideoTab('sim')" style="flex: 1; padding: 0.75rem; background: rgba(6, 182, 212, 0.15); border: none; border-bottom: 2px solid var(--accent-cyan); color: var(--accent-cyan); font-weight: 700; cursor: pointer; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                            <span>🎬</span> Video Mô Phỏng Từng Bước (Full HD)
-                        </button>
-                        <button id="btnTabVideo" onclick="switchVideoTab('mp4')" style="flex: 1; padding: 0.75rem; background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--text-sub); font-weight: 600; cursor: pointer; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                            <span>🎥</span> Video Clip Thực Tế / YouTube
-                        </button>
-                    </div>
-
-                    <!-- 1. Interactive Animated Video Walkthrough Screen -->
-                    <div id="videoSimContainer" style="position: relative; width: 100%; height: 320px; background: #090d16; overflow: hidden; display: flex; flex-direction: column;">
-                        <!-- Browser Header Simulation -->
-                        <div style="background: #131926; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.06);">
-                            <div style="display: flex; gap: 5px;">
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></div>
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></div>
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
-                            </div>
-                            <div style="flex: 1; background: #0a0d14; border-radius: 6px; padding: 3px 10px; font-size: 0.75rem; color: #94a3b8; font-family: monospace; display: flex; align-items: center; gap: 5px;">
-                                <span>🔒</span> https://lootlabs.gg/yokahub-free-key
-                            </div>
-                            <span id="simTimeBadge" style="font-size: 0.72rem; color: #38bdf8; font-weight: 700; font-family: monospace;">00:00</span>
-                        </div>
-
-                        <!-- Stage Content -->
-                        <div id="simScreen" style="flex: 1; position: relative; padding: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                            <div id="simStepTitle" style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
-                                Bước 1: Trang Tải Key YokaHub
-                            </div>
-                            <div id="simStepDesc" style="font-size: 0.88rem; color: #94a3b8; max-width: 380px; margin-bottom: 1.4rem;">
-                                Kéo xuống dưới và tìm nút "Free Access with Ads"
-                            </div>
-
-                            <!-- Interactive Mock Button -->
-                            <div id="simButton" style="background: #1e293b; border: 2px solid #38bdf8; color: #38bdf8; padding: 10px 24px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); transition: all 0.3s;">
-                                ⚡ Free Access with Ads
-                            </div>
-
-                            <!-- Simulated Mouse Cursor -->
-                            <div id="simCursor" style="position: absolute; width: 22px; height: 22px; pointer-events: none; transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); z-index: 50; top: 80%; left: 20%;">
-                                <svg viewBox="0 0 24 24" fill="#fff" stroke="#000" stroke-width="1.5" style="filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));">
-                                    <path d="M3 3l7 18 3-7 7-3L3 3z"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <!-- Video Controls Bar -->
-                        <div style="background: #111622; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06);">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <button onclick="toggleSimPlay()" id="btnPlayPause" style="background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer;">⏸️</button>
-                                <button onclick="restartSim()" style="background: none; border: none; color: #94a3b8; font-size: 0.85rem; cursor: pointer;">🔄 Xem lại</button>
-                            </div>
-                            <div style="font-size: 0.78rem; color: #38bdf8; font-weight: 600;">
-                                💡 Video mô phỏng tự động đang phát
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Real Video Player Wrapper -->
-                    <div id="videoMp4Container" class="video-player-wrapper" style="display: none;">
-                        <iframe id="ytFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Video Huong Dan Vuot Link" allowfullscreen style="display: none;"></iframe>
-                        <video id="tutorialVideo" controls playsinline style="width: 100%; height: 100%;">
-                            <source src="https://quystptv00383-commits.github.io/yokahub-store/media/tutorial_bypass.mp4" type="video/mp4">
-                            Trình duyệt của bạn không hỗ trợ thẻ video.
-                        </video>
-                    </div>
-
-                    <!-- Step-by-step visual cards -->
-                    <div class="tutorial-steps-card">
-                        <div style="font-weight: 700; color: #fff; margin-bottom: 1rem; font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem;">
-                            <span>📌</span> 4 Bước Vượt Link Lấy Key Đơn Giản:
-                        </div>
-
-                        <div class="step-item">
-                            <div class="step-num">1</div>
-                            <div class="step-content">
-                                <h4>Nhấp Nút "Vượt Link Lấy Key"</h4>
-                                <p>Bấm nút màu xanh bên trái để mở trang lấy key an toàn.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item">
-                            <div class="step-num">2</div>
-                            <div class="step-content">
-                                <h4>Chọn "Free Access with Ads"</h4>
-                                <p>Kéo xuống dưới trang và bấm vào nút <strong>Free Access with Ads</strong> (Truy cập miễn phí có quảng cáo).</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item">
-                            <div class="step-num">3</div>
-                            <div class="step-content">
-                                <h4>Xem bài viết 5 giây & Bấm dấu X</h4>
-                                <p>Bấm vào "Discover Articles" ➡️ Đợi 5 giây ➡️ Bấm dấu <strong>✕</strong> góc trên bên phải để hoàn tất.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item">
-                            <div class="step-num">4</div>
-                            <div class="step-content">
-                                <h4>Bấm "Continue" & Nhận Key</h4>
-                                <p>Bấm nút Continue màu xanh để nhận mã Key Free 24h, sau đó dán vào Roblox để chơi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ONLINE KEY CHECKER -->
-        <section id="key-checker" class="checker-box">
-            <div class="section-title" style="margin: 0 0 1rem;">
-                <h2>🔍 Tra Cứu Bản Quyền Key Online</h2>
-                <p>Kiểm tra thời hạn, gói dịch vụ và tình trạng kích hoạt của bất kỳ mã Key nào.</p>
-            </div>
-
-            <div class="checker-form">
-                <input type="text" id="checkKeyInput" class="checker-input" placeholder="Dán mã Key tại đây (VD: YOKA-VIP-... hoặc YOKA-FREE-...)">
-                <button onclick="checkKeyOnline()" class="btn-copy" style="padding: 0.85rem 1.6rem; font-size: 0.95rem;">Kiểm Tra Ngay</button>
-            </div>
-
-            <div id="checkResult" style="max-width: 650px; margin: 1.5rem auto 0; display: none; padding: 1.2rem; border-radius: 12px; font-size: 0.95rem;">
-                <!-- Result dynamically injected here -->
-            </div>
-        </section>
-    </div>
-
-    <!-- Smart VietQR Payment Modal -->
-    <div id="paymentModal" class="modal-overlay">
-        <div class="modal-card">
-            <button class="modal-close" onclick="closePaymentModal()">&times;</button>
-            <h3 id="modalPackageTitle" style="color: var(--primary); font-size: 1.35rem; margin-bottom: 0.4rem;">Thanh Toán Bản Quyền</h3>
-            <p style="color: var(--text-sub); font-size: 0.88rem;">Quét mã QR bằng App Ngân Hàng hoặc Momo để kích hoạt key tự động.</p>
-            
-            <div class="qr-wrapper">
-                <img id="modalQrImg" src="" alt="Mã VietQR Tự Động">
-            </div>
-
-            <div class="bank-info-box">
-                <div class="info-row">
-                    <span>Ngân Hàng:</span>
-                    <span>MB BANK (Quân Đội)</span>
-                </div>
-                <div class="info-row">
-                    <span>Số Tài Khoản:</span>
-                    <span>
-                        <strong id="modalStk">36390914112009</strong>
-                        <button class="copy-pill" onclick="copyText('36390914112009')">Copy STK</button>
-                    </span>
-                </div>
-                <div class="info-row">
-                    <span>Chủ Tài Khoản:</span>
-                    <span>NGUYEN HUYEN QUY</span>
-                </div>
-                <div class="info-row">
-                    <span>Số Tiền:</span>
-                    <span id="modalAmount" style="color: var(--primary);">120.000đ</span>
-                </div>
-                <div class="info-row">
-                    <span>Nội Dung CK:</span>
-                    <span>
-                        <strong id="modalContent" style="color: #38bdf8;">YOKA 8921</strong>
-                        <button class="copy-pill" onclick="copyContent()">Copy ND</button>
-                    </span>
-                </div>
-            </div>
-
-            <a href="https://discord.gg/8XzH9QxP" target="_blank" class="btn-card btn-card-vip" style="margin-bottom: 0.8rem; text-decoration: none;">
-                🎫 Đã Chuyển Khoản? Vào Discord Nhận Key Ngay
-            </a>
-            
-            <!-- Nút thoát ra trang Get Key Free -->
-            <button onclick="closePaymentModal(); window.location.hash='#get-key'; document.getElementById('get-key').scrollIntoView({behavior: 'smooth'});" class="btn-card" style="background: rgba(6, 182, 212, 0.12); border: 1.5px solid var(--accent-cyan); color: var(--accent-cyan);">
-                🚪 Thoát Ra Trang Get Key Free (24h Miễn Phí)
-            </button>
+            <button class="btn-copy-code" onclick="copyLoaderCode()">📋 Sao Chép Script</button>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2026 YokaHub Commercial Platform • Tác giả: Yoka (Shinene_11).</p>
-            <p style="margin-top: 0.5rem; color: #64748b; font-size: 0.82rem;">Bảo mật Salted SHA-256 • Mã hóa 2 chiều Stream Cipher • Khóa cứng HWID chống Share Key.</p>
-        </div>
-    </footer>
+    <!-- PRICING CARDS SECTION -->
+    <section class="pricing-container" id="pricing">
+        <div class="pricing-grid">
 
-    <!-- Scripts -->
+            <!-- 1. GÓI FREE (24 GIỜ) -->
+            <div class="pricing-card">
+                <span class="card-pill pill-free">Miễn phí</span>
+                <h3 class="card-title">Gói Free</h3>
+                <p class="card-desc">Trải nghiệm đầy đủ tính năng King Legacy qua 1 bước xác minh hàng ngày.</p>
+                <div class="card-price">
+                    0đ <span>/ 24 giờ</span>
+                </div>
+                <button class="btn-card btn-free" onclick="openVerifyModal()">
+                    Nhận Key Miễn Phí
+                </button>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Full tính năng săn Hydra, Kraken & Serpent
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Auto Farm quái, nhiệm vụ Sea 1-2-3 mượt mà
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Tự động đổi máy chủ săn Boss (Server Hop)
+                    </li>
+                    <li class="feature-item feature-item muted">
+                        <span class="feature-icon icon-cross">✕</span>
+                        Cần vượt link xác minh (Work.ink / LootLabs)
+                    </li>
+                    <li class="feature-item feature-item muted">
+                        <span class="feature-icon icon-cross">✕</span>
+                        Không hỗ trợ lưu License vĩnh viễn
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2. VIP THÁNG (30 NGÀY) -->
+            <div class="pricing-card">
+                <span class="card-pill pill-month">🔥 Phổ biến nhất</span>
+                <h3 class="card-title">VIP Tháng</h3>
+                <p class="card-desc">Cày cuốc chuyên nghiệp không ngắt quãng, loại bỏ hoàn toàn các bước quảng cáo.</p>
+                <div class="card-price">
+                    50.000đ <span>/ 30 ngày</span>
+                </div>
+                <button class="btn-card btn-month" onclick="openPaymentModal('VIP Tháng (30 Ngày)', 50000)">
+                    Mua Gói Tháng (50K)
+                </button>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        <strong>BỎ QUA HOÀN TOÀN CÁC BƯỚC QUẢNG CÁO</strong>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Mở game là vào thẳng, không bao giờ phải get key
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Tự động lưu mã máy (HWID Lock an toàn)
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Hạn dùng 30 ngày kể từ ngày kích hoạt
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Cấp Role 💎 Yoka VIP tại Discord hỗ trợ 24/7
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3. VIP VĨNH VIỄN (LIFETIME) -->
+            <div class="pricing-card featured">
+                <span class="card-pill pill-lifetime">👑 Khuyên dùng • Trọn đời</span>
+                <h3 class="card-title">VIP Vĩnh Viễn</h3>
+                <p class="card-desc">Mua một lần duy nhất, sở hữu bản quyền vĩnh viễn trọn đời không giới hạn.</p>
+                <div class="card-price">
+                    120.000đ <span>/ Trọn đời</span>
+                </div>
+                <button class="btn-card btn-lifetime" onclick="openPaymentModal('VIP Vĩnh Viễn (Lifetime)', 120000)">
+                    Mua Vĩnh Viễn (120K)
+                </button>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        <strong>TẤT CẢ ĐẶC QUYỀN CỦA GÓI VIP THÁNG</strong>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Bản quyền Vĩnh Viễn không bao giờ hết hạn
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Hỗ trợ đổi / reset HWID miễn phí khi đổi thiết bị
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Trải nghiệm sớm nhất các bản cập nhật Sea mới
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Kênh chat 1-1 riêng với Founder Yoka (Shinene_11)
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ONLINE KEY CHECKER SECTION -->
+    <section class="checker-section" id="key-checker">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">Tra Cứu Bản Quyền & Tình Trạng Key</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Kiểm tra thời hạn, cấp độ bản quyền (Admin, VIP, Free) của mã Key</p>
+
+        <div class="checker-input-row">
+            <input type="text" id="checkerInput" class="checker-input" placeholder="Dán mã Key tại đây... (VD: YOKA-ADMIN-... hoặc YOKA-VIP-...)">
+            <button class="btn-check-key" onclick="checkKey()">Kiểm Tra</button>
+        </div>
+        <div id="checkerResult" style="display: none; padding: 12px; border-radius: 8px; font-size: 0.86rem; font-weight: 600; text-align: left;"></div>
+    </section>
+
+    <!-- ========================================================
+         MODAL 1: CHỌN BƯỚC XÁC MINH (EXACT PROJECTREAL STYLE)
+         ======================================================== -->
+    <div id="verifyModal" class="modal-backdrop">
+        <div class="modal-window">
+            
+            <!-- HEADER -->
+            <div class="modal-header">
+                <button class="btn-close-modal" onclick="closeVerifyModal()">✕</button>
+                <h3 class="modal-title">Chọn bước xác minh</h3>
+                <p class="modal-subtitle">Chọn nhà cung cấp và hoàn tất các bước. YokaHub sẽ hiển thị key 24 giờ của bạn.</p>
+                
+                <div class="modal-stepper">
+                    <div id="step1Indicator" class="step-item active">
+                        <span class="step-num">1</span>
+                        <span>Chọn</span>
+                    </div>
+                    <span style="color: var(--border);">••••••</span>
+                    <div id="step2Indicator" class="step-item">
+                        <span class="step-num">2</span>
+                        <span>Xác minh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 1 VIEW -->
+            <div id="verifyStep1">
+                <!-- PROMO CARD: DÙNG YOKAHUB KHÔNG CẦN QUẢNG CÁO -->
+                <div class="modal-promo-banner">
+                    <div class="promo-preview-box">
+                        <div class="mini-card-row">
+                            <div class="mini-card">
+                                <span style="font-size: 7px; color: #94a3b8;">$0...</span>
+                                <div class="mini-card-bar"></div>
+                            </div>
+                            <div class="mini-card">
+                                <span style="font-size: 7px; color: #c084fc;">VIP</span>
+                                <div class="mini-card-bar"></div>
+                            </div>
+                            <div class="mini-card">
+                                <span style="font-size: 7px; color: #38bdf8;">$2.00</span>
+                                <div class="mini-card-btn"></div>
+                            </div>
+                        </div>
+                        <div style="font-size: 7px; color: #fff; font-weight: 700; margin-top: 2px;">YokaHub Plus</div>
+                    </div>
+                    <div class="promo-content">
+                        <h4 class="promo-title">Dùng YokaHub không cần bước quảng cáo</h4>
+                        <p class="promo-desc">VIP và Trọn Đời bỏ qua bước quảng cáo của key miễn phí và luôn giữ YokaHub sẵn sàng khi bạn cần.</p>
+                        <button class="btn-promo-action" onclick="switchToVipPurchase()">Xem các gói</button>
+                    </div>
+                </div>
+
+                <!-- PROVIDER LIST -->
+                <div class="provider-list">
+                    <!-- OPTION 1: WORK.INK (1 BƯỚC) -->
+                    <div class="provider-card" onclick="selectProvider('workink')">
+                        <div class="provider-left">
+                            <div class="provider-logo logo-workink">W</div>
+                            <div class="provider-info">
+                                <div class="provider-title-row">
+                                    <span class="provider-name">Work.ink</span>
+                                    <span class="provider-badge">1 bước</span>
+                                </div>
+                                <div class="provider-sub">Một checkpoint nhanh. Khi hoàn tất, YokaHub sẽ hiển thị key 24 giờ của bạn.</div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">›</div>
+                    </div>
+
+                    <!-- OPTION 2: LOOTLABS (2 BƯỚC) -->
+                    <div class="provider-card" onclick="selectProvider('lootlabs')">
+                        <div class="provider-left">
+                            <div class="provider-logo logo-lootlabs">🎁</div>
+                            <div class="provider-info">
+                                <div class="provider-title-row">
+                                    <span class="provider-name">LootLabs</span>
+                                    <span class="provider-badge">2 bước</span>
+                                </div>
+                                <div class="provider-sub">Hoàn tất 2 tác vụ nhanh. Khi xong, YokaHub sẽ hiển thị key 24 giờ của bạn tại đây.</div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">›</div>
+                    </div>
+                </div>
+
+                <!-- FOOTER -->
+                <div class="modal-footer">
+                    <a href="https://quystptv00383-commits.github.io/yokahub-store/#video-guide" target="_blank" class="modal-help-link">
+                        <span>Cần trợ giúp? Mở hướng dẫn</span>
+                        <span>›</span>
+                    </a>
+                    <button class="btn-modal-cancel" onclick="closeVerifyModal()">Hủy</button>
+                </div>
+            </div>
+
+            <!-- STEP 2 VIEW (XÁC MINH IN PROGRESS) -->
+            <div id="verifyStep2" class="step-verify-box">
+                <div class="verify-spinner"></div>
+                <h4 id="verifyStatusTitle" class="verify-title">Đang chờ hoàn tất bước xác minh...</h4>
+                <p id="verifyStatusDesc" class="verify-desc">
+                    Trang vượt link đã được mở ở thẻ mới. Vui lòng hoàn thành bước quảng cáo ngắn (5 giây) để hệ thống cấp mã Key cho bạn.
+                </p>
+
+                <!-- BUTTON TO CHECK COMPLETION -->
+                <button id="btnCheckVerify" class="btn-card btn-lifetime" style="margin-bottom: 1rem; width: 100%;" onclick="completeVerification()">
+                    ⚡ Tôi Đã Vượt Link Xong • Bấm Để Nhận Key
+                </button>
+
+                <!-- UNLOCKED KEY BOX (CHỈ HIỂN THỊ SAU KHI VƯỢT LINK) -->
+                <div id="unlockedKeyBox" class="key-unlocked-box">
+                    <div style="font-size: 0.82rem; color: var(--accent-green); font-weight: 700;">✓ XÁC MINH THÀNH CÔNG! MÃ KEY 24H CỦA BẠN:</div>
+                    <div id="unlockedKeyVal" class="key-text-display">YOKA-FREE-2026-KING-LEGACY</div>
+                    <button class="btn-copy-key-now" onclick="copyUnlockedKey()">
+                        📋 Sao Chép Mã Key Để Dán Vào Roblox
+                    </button>
+                </div>
+
+                <div style="margin-top: 1rem;">
+                    <a href="#" onclick="backToStep1(); return false;" style="color: var(--text-muted); font-size: 0.82rem; text-decoration: none;">
+                        ← Chọn nhà cung cấp khác
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================================
+         MODAL 2: VIETQR MB BANK VIP PAYMENT
+         ======================================================== -->
+    <div id="paymentModal" class="modal-backdrop">
+        <div class="modal-window" style="max-width: 480px;">
+            <div class="modal-header">
+                <button class="btn-close-modal" onclick="closePaymentModal()">✕</button>
+                <h3 class="modal-title" id="payModalTitle">Thanh Toán VIP</h3>
+                <p class="modal-subtitle">Quét mã VietQR bằng bất kỳ App Ngân Hàng hoặc Ví Điện Tử nào để nhận Key tự động.</p>
+            </div>
+
+            <div style="text-align: center;">
+                <div class="qr-card">
+                    <img id="vietQrImg" src="" alt="Mã VietQR Thanh Toán">
+                </div>
+
+                <div class="bank-info-grid">
+                    <div class="bank-info-row">
+                        <span>Ngân Hàng:</span>
+                        <span>MB Bank (Quân Đội)</span>
+                    </div>
+                    <div class="bank-info-row">
+                        <span>Số Tài Khoản:</span>
+                        <span id="payStk">36390914112009</span>
+                    </div>
+                    <div class="bank-info-row">
+                        <span>Chủ Tài Khoản:</span>
+                        <span>NGUYEN HUYEN QUY</span>
+                    </div>
+                    <div class="bank-info-row">
+                        <span>Số Tiền:</span>
+                        <span id="payAmount" style="color: #38bdf8;">50.000đ</span>
+                    </div>
+                    <div class="bank-info-row">
+                        <span>Nội Dung:</span>
+                        <span id="paySyntax" style="color: var(--accent-gold);">YOKA VIP ...</span>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+                    💡 Sau khi chuyển khoản, Admin sẽ kích hoạt Key VIP và gửi cho bạn qua Discord hoặc mã giao dịch.
+                </div>
+
+                <button class="btn-modal-cancel" onclick="closePaymentModal()">Đóng Cửa Sổ</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        
-        // INTERACTIVE ANIMATED VIDEO SIMULATION
-        let simPlaying = true;
-        let simStep = 1;
-        let simInterval = null;
+        // CẤU HÌNH LINK VƯỢT LINK (ADMIN CÓ THỂ THAY BẰNG LINK RIÊNG)
+        const PROVIDER_URLS = {
+            workink: "https://work.ink/s/yoka_free_key_portal",
+            lootlabs: "https://loot-link.com/s?yoka_free_key_portal"
+        };
 
-        function switchVideoTab(tab) {
-            const btnSim = document.getElementById('btnTabSim');
-            const btnMp4 = document.getElementById('btnTabVideo');
-            const boxSim = document.getElementById('videoSimContainer');
-            const boxMp4 = document.getElementById('videoMp4Container');
-
-            if (tab === 'sim') {
-                btnSim.style.background = 'rgba(6, 182, 212, 0.15)';
-                btnSim.style.borderBottom = '2px solid var(--accent-cyan)';
-                btnSim.style.color = 'var(--accent-cyan)';
-
-                btnMp4.style.background = 'transparent';
-                btnMp4.style.borderBottom = '2px solid transparent';
-                btnMp4.style.color = 'var(--text-sub)';
-
-                boxSim.style.display = 'flex';
-                boxMp4.style.display = 'none';
-            } else {
-                btnMp4.style.background = 'rgba(139, 92, 246, 0.15)';
-                btnMp4.style.borderBottom = '2px solid var(--accent-purple)';
-                btnMp4.style.color = '#a78bfa';
-
-                btnSim.style.background = 'transparent';
-                btnSim.style.borderBottom = '2px solid transparent';
-                btnSim.style.color = 'var(--text-sub)';
-
-                boxSim.style.display = 'none';
-                boxMp4.style.display = 'block';
-            }
+        // COPY SCRIPT LOADER
+        function copyLoaderCode() {
+            const code = document.getElementById('loaderScript').innerText.trim();
+            navigator.clipboard.writeText(code);
+            alert("✓ ĐÃ SAO CHÉP MÃ LOADER YOKAHUB!\n\nDán vào Script Executor trên Roblox để mở Cổng Key.");
         }
 
-        function runSimSequence() {
-            if (!simPlaying) return;
-            const cursor = document.getElementById('simCursor');
-            const btn = document.getElementById('simButton');
-            const title = document.getElementById('simStepTitle');
-            const desc = document.getElementById('simStepDesc');
-            const badge = document.getElementById('simTimeBadge');
-
-            if (simStep === 1) {
-                badge.innerText = '00:03';
-                title.innerText = 'Bước 1: Bấm "Free Access with Ads"';
-                desc.innerText = 'Di chuột vào nút truy cập miễn phí có quảng cáo';
-                btn.style.background = '#1e293b';
-                btn.style.borderColor = '#38bdf8';
-                btn.style.color = '#38bdf8';
-                btn.innerText = '⚡ Free Access with Ads';
-
-                cursor.style.top = '62%';
-                cursor.style.left = '48%';
-
-                setTimeout(() => {
-                    if (!simPlaying) return;
-                    btn.style.background = '#38bdf8';
-                    btn.style.color = '#000';
-                    btn.style.transform = 'scale(0.96)';
-                    setTimeout(() => { btn.style.transform = 'scale(1)'; }, 200);
-                }, 1000);
-                simStep = 2;
-            } else if (simStep === 2) {
-                badge.innerText = '00:08';
-                title.innerText = 'Bước 2: Xem bài viết 5 giây';
-                desc.innerText = 'Bấm "Discover Articles" rồi đóng dấu X';
-                btn.style.background = '#334155';
-                btn.style.borderColor = '#f59e0b';
-                btn.style.color = '#f59e0b';
-                btn.innerText = '📰 Discover Articles (5s)';
-
-                cursor.style.top = '62%';
-                cursor.style.left = '52%';
-
-                setTimeout(() => {
-                    if (!simPlaying) return;
-                    btn.innerText = '✕ Đã xem xong (Bấm đóng)';
-                    btn.style.borderColor = '#10b981';
-                    btn.style.color = '#10b981';
-                }, 1400);
-                simStep = 3;
-            } else if (simStep === 3) {
-                badge.innerText = '00:15';
-                title.innerText = 'Bước 3: Nhận Key Thành Công!';
-                desc.innerText = 'Hệ thống mở khóa mã Key Free 24h của bạn';
-                btn.style.background = '#10b981';
-                btn.style.borderColor = '#10b981';
-                btn.style.color = '#fff';
-                btn.innerText = '🎉 KEY: YOKA-FREE-2026-KING-LEGACY';
-
-                cursor.style.top = '62%';
-                cursor.style.left = '50%';
-                simStep = 4;
-            } else {
-                badge.innerText = '00:20';
-                title.innerText = '✓ Hoàn Tất! Dán Key Vào Roblox Để Chơi';
-                desc.innerText = 'Bấm vào nút bên dưới để bắt đầu vượt link thực tế!';
-                btn.style.background = 'linear-gradient(135deg, #06b6d4, #3b82f6)';
-                btn.style.borderColor = '#06b6d4';
-                btn.style.color = '#fff';
-                btn.innerText = '🚀 Bấm Vượt Link Lấy Key Ngay!';
-                cursor.style.top = '80%';
-                cursor.style.left = '20%';
-                simStep = 1;
-            }
+        // MODAL VERIFY CONTROLS
+        function openVerifyModal() {
+            const m = document.getElementById('verifyModal');
+            m.classList.add('show');
+            backToStep1();
         }
 
-        function toggleSimPlay() {
-            simPlaying = !simPlaying;
-            document.getElementById('btnPlayPause').innerText = simPlaying ? '⏸️' : '▶️';
+        function closeVerifyModal() {
+            const m = document.getElementById('verifyModal');
+            m.classList.remove('show');
         }
 
-        function restartSim() {
-            simStep = 1;
-            simPlaying = true;
-            document.getElementById('btnPlayPause').innerText = '⏸️';
-            runSimSequence();
+        function backToStep1() {
+            document.getElementById('verifyStep1').style.display = 'block';
+            document.getElementById('verifyStep2').style.display = 'none';
+            document.getElementById('step1Indicator').className = 'step-item active';
+            document.getElementById('step2Indicator').className = 'step-item';
+            document.getElementById('unlockedKeyBox').style.display = 'none';
+            document.getElementById('btnCheckVerify').style.display = 'block';
         }
 
-        setInterval(runSimSequence, 3200);
-
-        function triggerPayment(packageTitle, amount) {
-            document.getElementById('modalPackageTitle').innerText = 'Thanh Toán ' + packageTitle;
-            document.getElementById('modalAmount').innerText = amount.toLocaleString('vi-VN') + 'đ';
+        function selectProvider(providerKey) {
+            const url = PROVIDER_URLS[providerKey] || PROVIDER_URLS.lootlabs;
             
-            // Random ma noi dung chuyen khoan duy nhat
-            const randCode = Math.floor(1000 + Math.random() * 9000);
-            const content = 'YOKA ' + randCode;
-            document.getElementById('modalContent').innerText = content;
+            // 1. Mở link vượt link ở tab mới
+            window.open(url, '_blank');
 
-            // Tao link VietQR chuan Ngan Hang MB Bank (STK: 36390914112009)
-            const qrUrl = 'https://img.vietqr.io/image/mbbank-36390914112009-compact2.png?amount=' + amount + '&addInfo=' + encodeURIComponent(content) + '&accountName=' + encodeURIComponent('NGUYEN HUYEN QUY');
-            document.getElementById('modalQrImg').src = qrUrl;
+            // 2. Chuyển sang Step 2 trên Modal
+            document.getElementById('verifyStep1').style.display = 'none';
+            document.getElementById('verifyStep2').style.display = 'block';
+            document.getElementById('step1Indicator').className = 'step-item done';
+            document.getElementById('step2Indicator').className = 'step-item active';
 
-            document.getElementById('paymentModal').style.display = 'flex';
+            const pName = providerKey === 'workink' ? 'Work.ink' : 'LootLabs';
+            document.getElementById('verifyStatusTitle').innerText = 'Đang chờ bạn vượt link trên ' + pName + '...';
+            document.getElementById('verifyStatusDesc').innerText = 'Tab vượt link ' + pName + ' đã được mở. Vui lòng hoàn tất bước xem quảng cáo ngắn, sau đó bấm nút bên dưới để nhận mã Key!';
+        }
+
+        function completeVerification() {
+            // Khi khách bấm xác nhận đã vượt link, hiển thị hộp nhận key
+            document.getElementById('btnCheckVerify').style.display = 'none';
+            document.getElementById('verifyStatusTitle').innerText = '✓ Xác Minh Hoàn Tất!';
+            document.getElementById('verifyStatusDesc').innerText = 'Hệ thống đã ghi nhận bước xác minh hợp lệ. Hãy sao chép mã Key bên dưới để dán vào game.';
+            document.getElementById('unlockedKeyBox').style.display = 'block';
+        }
+
+        function copyUnlockedKey() {
+            const key = document.getElementById('unlockedKeyVal').innerText.trim();
+            navigator.clipboard.writeText(key);
+            alert("✓ ĐÃ SAO CHÉP MÃ KEY FREE 24H:\n" + key + "\n\nHãy mở lại Roblox và dán vào tab [Nhập Key] để mở YokaHub!");
+        }
+
+        function switchToVipPurchase() {
+            closeVerifyModal();
+            openPaymentModal('VIP Vĩnh Viễn (Lifetime)', 120000);
+        }
+
+        // PAYMENT MODAL CONTROLS
+        function openPaymentModal(planName, amount) {
+            const m = document.getElementById('paymentModal');
+            document.getElementById('payModalTitle').innerText = 'Thanh Toán ' + planName;
+            document.getElementById('payAmount').innerText = amount.toLocaleString('vi-VN') + 'đ';
+            
+            const randomCode = Math.floor(1000 + Math.random() * 9000);
+            const syntax = 'YOKA ' + (amount === 50000 ? 'VIP30' : 'VIPPERM') + ' ' + randomCode;
+            document.getElementById('paySyntax').innerText = syntax;
+
+            // Generate VietQR URL
+            const qrUrl = 'https://api.vietqr.io/image/970422-36390914112009-Q0c9eZJ.jpg?accountName=NGUYEN%20HUYEN%20QUY&amount=' + amount + '&addInfo=' + encodeURIComponent(syntax);
+            document.getElementById('vietQrImg').src = qrUrl;
+
+            m.classList.add('show');
         }
 
         function closePaymentModal() {
-            document.getElementById('paymentModal').style.display = 'none';
+            document.getElementById('paymentModal').classList.remove('show');
         }
 
+        // Close on backdrop click
         window.onclick = function(e) {
-            const m = document.getElementById('paymentModal');
-            if (e.target === m) closePaymentModal();
-        };
-
-        function copyText(txt) {
-            navigator.clipboard.writeText(txt);
-            alert('✓ Đã sao chép: ' + txt);
+            const vModal = document.getElementById('verifyModal');
+            const pModal = document.getElementById('paymentModal');
+            if (e.target === vModal) closeVerifyModal();
+            if (e.target === pModal) closePaymentModal();
         }
 
-        function copyContent() {
-            const nd = document.getElementById('modalContent').innerText;
-            navigator.clipboard.writeText(nd);
-            alert('✓ Đã sao chép Nội Dung Chuyển Khoản: ' + nd);
-        }
+        // KEY CHECKER
+        function checkKey() {
+            const input = document.getElementById('checkerInput').value.trim();
+            const res = document.getElementById('checkerResult');
+            res.style.display = 'block';
 
-        function copyScriptLoader() {
-            const code = 'loadstring(game:HttpGet("https://gist.githubusercontent.com/quystptv00383-commits/7dde495f53b84afb7cf64c06c15dfe2d/raw/YokaHub_Commercial_Loader.luau"))()';
-            navigator.clipboard.writeText(code);
-            alert('✓ ĐÃ SAO CHÉP MÃ CHẠY SCRIPT!\nDán vào Executor (Real, Delta, Fluxus, Wave, Arceus) để chạy.');
-        }
-
-        function onBypassClicked() {
-            // Khi khach bam nut vuot link, tu dong hien hop nhan key de khi vuot xong khach lay duoc ngay
-            setTimeout(function() {
-                const box = document.getElementById('afterBypassBox');
-                if (box) {
-                    box.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 3000);
-        }
-
-        function copyFreeKey() {
-            const k = document.getElementById('freeKeyVal').innerText;
-            navigator.clipboard.writeText(k);
-            alert('✓ ĐÃ SAO CHÉP MÃ KEY FREE:\n' + k + '\n\nQuay lại Roblox và dán vào Tab [Nhập Key] để vào game!');
-        }
-
-        // ONLINE KEY CHECKER
-        function checkKeyOnline() {
-            const key = document.getElementById('checkKeyInput').value.trim();
-            const resBox = document.getElementById('checkResult');
-            resBox.style.display = 'block';
-
-            if (!key) {
-                resBox.style.background = 'rgba(239, 68, 68, 0.15)';
-                resBox.style.border = '1px solid var(--danger)';
-                resBox.innerHTML = '<span style="color: var(--danger);">✕ Vui lòng nhập mã Key để kiểm tra!</span>';
+            if (!input) {
+                res.style.background = 'rgba(239, 68, 68, 0.15)';
+                res.style.color = '#ef4444';
+                res.style.border = '1px solid #ef4444';
+                res.innerText = '✕ Vui lòng nhập mã Key để kiểm tra!';
                 return;
             }
 
-            if (key === 'YOKA-ADMIN-SHINENE-2026-PERMANENT' || key.includes('FOUNDER')) {
-                resBox.style.background = 'rgba(245, 158, 11, 0.15)';
-                resBox.style.border = '1px solid var(--primary)';
-                resBox.innerHTML = `
-                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.3rem;">👑 BẢN QUYỀN FOUNDER ADMIN</div>
-                    <div style="color: #cbd5e1;">• Trạng thái: <strong style="color: var(--success);">Đang Hoạt Động (Root Access)</strong></div>
-                    <div style="color: #cbd5e1;">• Thời hạn: <strong>VĨNH VIỄN (Trọn Đời)</strong></div>
-                    <div style="color: #cbd5e1;">• Đặc quyền: Mở toàn bộ tính năng, bypass mọi giới hạn.</div>
-                `;
-            } else if (key.startsWith('YOKA-VIP-')) {
-                resBox.style.background = 'rgba(16, 185, 129, 0.15)';
-                resBox.style.border = '1px solid var(--success)';
-                resBox.innerHTML = `
-                    <div style="font-weight: 700; color: var(--success); margin-bottom: 0.3rem;">💎 BẢN QUYỀN VIP CHÍNH THỨC</div>
-                    <div style="color: #cbd5e1;">• Trạng thái: <strong style="color: var(--success);">Hợp Lệ (Đã kích hoạt)</strong></div>
-                    <div style="color: #cbd5e1;">• Đặc quyền: Không cần vượt link, tự động lưu máy, hỗ trợ 24/7.</div>
-                `;
-            } else if (key === 'YOKA-FREE-2026-KING-LEGACY' || key.startsWith('YOKA-FREE-')) {
-                resBox.style.background = 'rgba(6, 182, 212, 0.15)';
-                resBox.style.border = '1px solid var(--accent-cyan)';
-                resBox.innerHTML = `
-                    <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.3rem;">🔗 BẢN QUYỀN MIỄN PHÍ (FREE KEY)</div>
-                    <div style="color: #cbd5e1;">• Trạng thái: <strong style="color: var(--success);">Hợp Lệ (Free Tier)</strong></div>
-                    <div style="color: #cbd5e1;">• Thời hạn: <strong>24 Giờ kể từ khi kích hoạt</strong></div>
-                    <div style="color: #cbd5e1;">• Nâng cấp: <strong>Mua VIP để không cần lấy key hàng ngày</strong></div>
-                `;
+            if (input === 'YOKA-ADMIN-SHINENE-2026-PERMANENT' || input.includes('FOUNDER')) {
+                res.style.background = 'rgba(255, 215, 0, 0.15)';
+                res.style.color = '#fbbf24';
+                res.style.border = '1px solid #fbbf24';
+                res.innerHTML = '👑 <strong>MÃ KEY FOUNDER ADMIN:</strong> Quyền Root Vĩnh Viễn • Không bao giờ hết hạn!';
+            } else if (input.startsWith('YOKA-VIP-')) {
+                res.style.background = 'rgba(16, 185, 129, 0.15)';
+                res.style.color = '#10b981';
+                res.style.border = '1px solid #10b981';
+                res.innerHTML = '💎 <strong>MÃ KEY VIP HỢP LỆ:</strong> Bản quyền VIP Cao Cấp • Không cần vượt link!';
+            } else if (input === 'YOKA-FREE-2026-KING-LEGACY' || input.startsWith('YOKA-FREE-')) {
+                res.style.background = 'rgba(6, 182, 212, 0.15)';
+                res.style.color = '#06b6d4';
+                res.style.border = '1px solid #06b6d4';
+                res.innerHTML = '✓ <strong>MÃ KEY FREE 24H HỢP LỆ:</strong> Có hiệu lực trong vòng 24 giờ kể từ khi kích hoạt.';
             } else {
-                resBox.style.background = 'rgba(239, 68, 68, 0.15)';
-                resBox.style.border = '1px solid var(--danger)';
-                resBox.innerHTML = '<span style="color: var(--danger);">✕ Key không tồn tại trên hệ thống hoặc đã hết hạn! Vui lòng liên hệ Admin.</span>';
+                res.style.background = 'rgba(239, 68, 68, 0.15)';
+                res.style.color = '#ef4444';
+                res.style.border = '1px solid #ef4444';
+                res.innerText = '✕ Mã Key không tồn tại hoặc đã hết hạn!';
             }
         }
     </script>

@@ -1975,11 +1975,15 @@
                     <button class="btn-copy-key-now" onclick="copyUnlockedKey()">
                         📋 Sao Chép Mã Key Để Dán Vào Roblox
                     </button>
+                    <div id="keyTimeRemainingNotice" style="font-size: 0.78rem; color: #a0aec0; margin-top: 0.6rem; text-align: center;"></div>
                 </div>
 
-                <div style="margin-top: 1.2rem;">
-                    <a href="#" onclick="backToStep1(); return false;" style="color: var(--text-muted); font-size: 0.82rem; text-decoration: none;">
+                <div style="margin-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem;">
+                    <a href="#" onclick="backToStep1(); return false;" style="color: var(--text-muted); text-decoration: none;">
                         ← Chọn nhà cung cấp khác
+                    </a>
+                    <a href="#" onclick="resetVerificationSession(); return false;" style="color: rgba(239, 68, 68, 0.85); text-decoration: underline;">
+                        🔄 Làm mới phiên (Lấy lại link)
                     </a>
                 </div>
             </div>
@@ -2070,7 +2074,46 @@
         function openVerifyModal() {
             const m = document.getElementById('verifyModal');
             m.classList.add('show');
-            backToStep1();
+            
+            const lastVerified = localStorage.getItem('yoka_last_verified');
+            const now = Date.now();
+            const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+            
+            if (lastVerified && (now - Number(lastVerified)) < ONE_DAY_MS) {
+                showActiveKeyView(Number(lastVerified));
+            } else {
+                backToStep1();
+            }
+        }
+
+        function showActiveKeyView(lastTime) {
+            document.getElementById('verifyStep1').style.display = 'none';
+            document.getElementById('verifyStep2').style.display = 'block';
+            document.getElementById('step1Indicator').className = 'step-item done';
+            document.getElementById('step2Indicator').className = 'step-item active';
+            document.getElementById('verifySpinner').style.display = 'none';
+            document.getElementById('reopenLinkBox').style.display = 'none';
+
+            const elapsed = Date.now() - lastTime;
+            const remainingMs = Math.max(0, (24 * 60 * 60 * 1000) - elapsed);
+            const remainingHours = Math.floor(remainingMs / (1000 * 60 * 60));
+            const remainingMins = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('verifyStatusTitle').innerText = '✓ Key 24h Đang Hoạt Động!';
+            document.getElementById('verifyStatusDesc').innerText = 'Bạn đã vượt link thành công trước đó. Key còn hiệu lực trong ' + remainingHours + ' giờ ' + remainingMins + ' phút nữa. Bạn KHÔNG cần phải vượt link lại!';
+            document.getElementById('unlockedKeyVal').innerText = _getDecryptedKey();
+            const noticeEl = document.getElementById('keyTimeRemainingNotice');
+            if (noticeEl) {
+                noticeEl.innerText = '⏱️ Thời hạn còn lại: ' + remainingHours + ' giờ ' + remainingMins + ' phút (Bản quyền 1 thiết bị/1 IP)';
+            }
+            document.getElementById('unlockedKeyBox').style.display = 'block';
+        }
+
+        function resetVerificationSession() {
+            if (confirm("Bạn có muốn làm mới phiên và lấy link vượt link mới không?")) {
+                localStorage.removeItem('yoka_last_verified');
+                backToStep1();
+            }
         }
 
         function closeVerifyModal() {
@@ -2125,11 +2168,18 @@
 
         function completeVerification() {
             // Chỉ chạy khi tab Checkpoint gửi tín hiệu đã vượt link thành công
+            try {
+                localStorage.setItem('yoka_last_verified', Date.now());
+            } catch(e) {}
             document.getElementById('verifySpinner').style.display = 'none';
             document.getElementById('reopenLinkBox').style.display = 'none';
             document.getElementById('verifyStatusTitle').innerText = '✓ Xác Minh Hoàn Tất!';
-            document.getElementById('verifyStatusDesc').innerText = 'Hệ thống đã ghi nhận bước vượt link hợp lệ. Hãy sao chép mã Key bên dưới để dán vào game.';
+            document.getElementById('verifyStatusDesc').innerText = 'Hệ thống đã ghi nhận bước vượt link hợp lệ. Key miễn phí có hạn 24 giờ. Trong 24 giờ này bạn không cần vượt link lại!';
             document.getElementById('unlockedKeyVal').innerText = _getDecryptedKey();
+            const noticeEl = document.getElementById('keyTimeRemainingNotice');
+            if (noticeEl) {
+                noticeEl.innerText = '⏱️ Thời hạn còn lại: 24 giờ 00 phút (Bản quyền 1 thiết bị/1 IP)';
+            }
             document.getElementById('unlockedKeyBox').style.display = 'block';
         }
 

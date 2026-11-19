@@ -1247,18 +1247,18 @@
 
             <!-- STEP 2 VIEW (XÁC MINH IN PROGRESS) -->
             <div id="verifyStep2" class="step-verify-box">
-                <div class="verify-spinner"></div>
-                <h4 id="verifyStatusTitle" class="verify-title">Đang chờ hoàn tất bước xác minh...</h4>
+                <div id="verifySpinner" class="verify-spinner"></div>
+                <h4 id="verifyStatusTitle" class="verify-title">Đang chờ bạn hoàn tất bước xác minh...</h4>
                 <p id="verifyStatusDesc" class="verify-desc">
-                    Trang vượt link đã được mở ở thẻ mới. Vui lòng hoàn thành bước quảng cáo ngắn (5 giây) để hệ thống cấp mã Key cho bạn.
+                    Trang vượt link đã được mở ở thẻ mới. Vui lòng hoàn thành bước kiểm tra trên tab đó. Khi hoàn tất, hệ thống sẽ tự động đồng bộ và hiển thị mã Key ngay tại đây.
                 </p>
 
-                <!-- BUTTON TO CHECK COMPLETION -->
-                <button id="btnCheckVerify" class="btn-card btn-lifetime" style="margin-bottom: 1rem; width: 100%;" onclick="completeVerification()">
-                    ⚡ Tôi Đã Vượt Link Xong • Bấm Để Nhận Key
-                </button>
+                <!-- LINK MỞ LẠI NẾU BỊ CHẶN POPUP -->
+                <p id="reopenLinkBox" style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+                    Tab vượt link chưa mở? <a href="#" id="reopenLinkBtn" style="color: var(--accent-cyan); text-decoration: underline; font-weight: 600;" onclick="reopenProviderLink(); return false;">Bấm vào đây để mở lại link xác minh</a>
+                </p>
 
-                <!-- UNLOCKED KEY BOX (CHỈ HIỂN THỊ SAU KHI VƯỢT LINK) -->
+                <!-- UNLOCKED KEY BOX (CHỈ TỰ ĐỘNG HIỂN THỊ KHI ĐÃ VƯỢT LINK THẬT) -->
                 <div id="unlockedKeyBox" class="key-unlocked-box">
                     <div style="font-size: 0.82rem; color: var(--accent-green); font-weight: 700;">✓ XÁC MINH THÀNH CÔNG! MÃ KEY 24H CỦA BẠN:</div>
                     <div id="unlockedKeyVal" class="key-text-display">YOKA-FREE-2026-KING-LEGACY</div>
@@ -1267,7 +1267,7 @@
                     </button>
                 </div>
 
-                <div style="margin-top: 1rem;">
+                <div style="margin-top: 1.2rem;">
                     <a href="#" onclick="backToStep1(); return false;" style="color: var(--text-muted); font-size: 0.82rem; text-decoration: none;">
                         ← Chọn nhà cung cấp khác
                     </a>
@@ -1368,17 +1368,21 @@
             m.classList.remove('show');
         }
 
+        let currentProviderUrl = '';
+
         function backToStep1() {
             document.getElementById('verifyStep1').style.display = 'block';
             document.getElementById('verifyStep2').style.display = 'none';
             document.getElementById('step1Indicator').className = 'step-item active';
             document.getElementById('step2Indicator').className = 'step-item';
             document.getElementById('unlockedKeyBox').style.display = 'none';
-            document.getElementById('btnCheckVerify').style.display = 'block';
+            document.getElementById('verifySpinner').style.display = 'block';
+            document.getElementById('reopenLinkBox').style.display = 'block';
         }
 
         function selectProvider(providerKey) {
             const url = PROVIDER_URLS[providerKey] || PROVIDER_URLS.lootlabs;
+            currentProviderUrl = url;
             
             // 1. Mở link vượt link ở tab mới
             window.open(url, '_blank');
@@ -1388,17 +1392,27 @@
             document.getElementById('verifyStep2').style.display = 'block';
             document.getElementById('step1Indicator').className = 'step-item done';
             document.getElementById('step2Indicator').className = 'step-item active';
+            document.getElementById('unlockedKeyBox').style.display = 'none';
+            document.getElementById('verifySpinner').style.display = 'block';
+            document.getElementById('reopenLinkBox').style.display = 'block';
 
             const pName = providerKey === 'workink' ? 'Work.ink' : 'LootLabs';
-            document.getElementById('verifyStatusTitle').innerText = 'Đang chờ bạn vượt link trên ' + pName + '...';
-            document.getElementById('verifyStatusDesc').innerText = 'Tab vượt link ' + pName + ' đã được mở. Vui lòng hoàn tất bước xem quảng cáo ngắn, sau đó bấm nút bên dưới để nhận mã Key!';
+            document.getElementById('verifyStatusTitle').innerText = 'Đang chờ bạn xác minh trên ' + pName + '...';
+            document.getElementById('verifyStatusDesc').innerText = 'Tab vượt link ' + pName + ' đã được mở. Vui lòng hoàn thành bước kiểm tra trên tab đó. Hệ thống sẽ tự động nhận diện và mở khóa key ngay tại đây!';
+        }
+
+        function reopenProviderLink() {
+            if (currentProviderUrl) {
+                window.open(currentProviderUrl, '_blank');
+            }
         }
 
         function completeVerification() {
-            // Khi khách bấm xác nhận đã vượt link, hiển thị hộp nhận key
-            document.getElementById('btnCheckVerify').style.display = 'none';
+            // Chỉ chạy khi tab Checkpoint gửi tín hiệu đã vượt link thành công
+            document.getElementById('verifySpinner').style.display = 'none';
+            document.getElementById('reopenLinkBox').style.display = 'none';
             document.getElementById('verifyStatusTitle').innerText = '✓ Xác Minh Hoàn Tất!';
-            document.getElementById('verifyStatusDesc').innerText = 'Hệ thống đã ghi nhận bước xác minh hợp lệ. Hãy sao chép mã Key bên dưới để dán vào game.';
+            document.getElementById('verifyStatusDesc').innerText = 'Hệ thống đã ghi nhận bước vượt link hợp lệ. Hãy sao chép mã Key bên dưới để dán vào game.';
             document.getElementById('unlockedKeyBox').style.display = 'block';
         }
 

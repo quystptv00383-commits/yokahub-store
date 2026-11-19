@@ -1846,7 +1846,7 @@
         <p style="font-size: 0.85rem; color: var(--text-muted);">Kiểm tra thời hạn, cấp độ bản quyền (Admin, VIP, Free) của mã Key</p>
 
         <div class="checker-input-row">
-            <input type="text" id="checkerInput" class="checker-input" placeholder="Dán mã Key tại đây... (VD: YOKA-ADMIN-... hoặc YOKA-VIP-...)">
+            <input type="text" id="checkerInput" class="checker-input" placeholder="Dán mã Key tại đây... (VD: yk_vip1m_... hoặc yk_life_...)">
             <button class="btn-check-key" onclick="checkKey()">Kiểm Tra</button>
         </div>
         <div id="checkerResult" style="display: none; padding: 12px; border-radius: 8px; font-size: 0.86rem; font-weight: 600; text-align: left;"></div>
@@ -2265,28 +2265,38 @@
                 return;
             }
 
-            // Bảo mật băm chuỗi (Không để lộ Plaintext Key Admin trong mã nguồn Web)
-            const inputUpper = input.toUpperCase();
-            if (inputUpper.startsWith('YOKA-ADMIN-') || inputUpper.includes('FOUNDER')) {
+            // Kiểm tra phân loại key chuẩn Token hỗn tạp bảo mật
+            const inpLower = input.toLowerCase();
+            if (inpLower.startsWith('yk_admin_')) {
                 res.style.background = 'rgba(255, 215, 0, 0.15)';
                 res.style.color = '#fbbf24';
                 res.style.border = '1px solid #fbbf24';
                 res.innerHTML = '👑 <strong>MÃ KEY FOUNDER ADMIN:</strong> Quyền Root Vĩnh Viễn • Đã xác thực cấp cao!';
-            } else if (inputUpper.startsWith('YOKA-VIP-')) {
+            } else if (inpLower.startsWith('yk_life_')) {
+                res.style.background = 'rgba(192, 132, 252, 0.15)';
+                res.style.color = '#c084fc';
+                res.style.border = '1px solid #c084fc';
+                res.innerHTML = '🌟 <strong>MÃ KEY VIP VĨNH VIỄN:</strong> Bản Quyền Trọn Đời (Lifetime) • Không giới hạn thời gian!';
+            } else if (inpLower.startsWith('yk_vip3m_')) {
                 res.style.background = 'rgba(16, 185, 129, 0.15)';
                 res.style.color = '#10b981';
                 res.style.border = '1px solid #10b981';
-                res.innerHTML = '💎 <strong>MÃ KEY VIP HỢP LỆ:</strong> Bản quyền VIP Cao Cấp • Không cần vượt link!';
-            } else if (inputUpper.startsWith('YOKA-FREE-')) {
+                res.innerHTML = '👑 <strong>MÃ KEY VIP 3 THÁNG:</strong> Thời hạn 90 Ngày • Bỏ qua hoàn toàn quảng cáo!';
+            } else if (inpLower.startsWith('yk_vip1m_')) {
+                res.style.background = 'rgba(56, 189, 248, 0.15)';
+                res.style.color = '#38bdf8';
+                res.style.border = '1px solid #38bdf8';
+                res.innerHTML = '💎 <strong>MÃ KEY VIP 1 THÁNG:</strong> Thời hạn 30 Ngày • Bỏ qua hoàn toàn quảng cáo!';
+            } else if (inpLower.startsWith('yk_free_')) {
                 res.style.background = 'rgba(6, 182, 212, 0.15)';
                 res.style.color = '#06b6d4';
                 res.style.border = '1px solid #06b6d4';
-                res.innerHTML = '✓ <strong>MÃ KEY FREE 24H HỢP LỆ:</strong> Có hiệu lực trong vòng 24 giờ kể từ khi kích hoạt.';
+                res.innerHTML = '✓ <strong>MÃ KEY FREE 24H:</strong> Có hiệu lực 24 giờ kể từ khi kích hoạt trong game.';
             } else {
                 res.style.background = 'rgba(239, 68, 68, 0.15)';
                 res.style.color = '#ef4444';
                 res.style.border = '1px solid #ef4444';
-                res.innerText = '✕ Mã Key không tồn tại hoặc đã hết hạn!';
+                res.innerText = '✕ Mã Key không hợp lệ hoặc sai định dạng!';
             }
         }
 

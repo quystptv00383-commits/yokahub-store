@@ -1470,7 +1470,7 @@
         <!-- SCRIPT LOADER BAR -->
         <div class="loader-bar">
             <div class="loader-code" id="loaderScript">
-                loadstring(game:HttpGet("https://gist.githubusercontent.com/quystptv00383-commits/7dde495f53b84afb7cf64c06c15dfe2d/raw/YokaHub_Commercial_Loader.luau"))()
+                loadstring(game:HttpGet("https://gist.githubusercontent.com/quystptv00383-commits/7dde495f53b84afb7cf64c06c15dfe2d/raw/loader.luau?t=" .. os.time()))()
             </div>
             <button class="btn-copy-code" onclick="copyLoaderCode()">📋 Sao Chép Script</button>
         </div>
@@ -1514,8 +1514,8 @@
                         <div class="stock-bar-fill" style="width: 100%; background: #10b981;"></div>
                     </div>
                     <div class="stock-meta-flex">
-                        <span>Đã phát hôm nay: <strong>682 key</strong></span>
-                        <span>Trạng thái: <strong>Sẵn sàng</strong></span>
+                        <span>Hình thức: <strong>Vượt Link Free</strong></span>
+                        <span>Trạng thái: <strong style="color: #10b981;">Tự Động 24/7</strong></span>
                     </div>
                 </div>
 
@@ -1557,13 +1557,13 @@
 
                 <!-- STOCK STATUS: 1 THÁNG -->
                 <div class="card-stock-box">
-                    <div class="stock-badge-tag stock-tag-green">🟢 Còn Hàng • MB VietQR Tự Động</div>
+                    <div class="stock-badge-tag stock-tag-green">🟢 Còn Hàng • MB VietQR Chính Chủ</div>
                     <div class="stock-bar-bg">
                         <div class="stock-bar-fill" style="width: 75%; background: linear-gradient(90deg, #38bdf8, #0ea5e9);"></div>
                     </div>
                     <div class="stock-meta-flex">
-                        <span>Đã bán: <strong>248 key</strong></span>
-                        <span>Còn trong kho: <strong style="color: #38bdf8;">15 key</strong></span>
+                        <span>Phương thức: <strong>VietQR MB Bank</strong></span>
+                        <span>Kho sẵn có: <strong style="color: #38bdf8;">15 key</strong></span>
                     </div>
                 </div>
 
@@ -1610,8 +1610,8 @@
                         <div class="stock-bar-fill" style="width: 72%; background: linear-gradient(90deg, #f59e0b, #10b981);"></div>
                     </div>
                     <div class="stock-meta-flex">
-                        <span>Đã bán: <strong>186 key</strong></span>
-                        <span>Còn trong kho: <strong style="color: #38bdf8;">15 key</strong></span>
+                        <span>Phương thức: <strong>VietQR MB Bank</strong></span>
+                        <span>Kho sẵn có: <strong style="color: #38bdf8;">15 key</strong></span>
                     </div>
                 </div>
 
@@ -1652,7 +1652,7 @@
             </div>
             <div class="trust-badge-item">
                 <span>⚡</span>
-                <span>Giao Key Tự Động Trong 5 Giây</span>
+                <span>Cấp Key VIP Nhanh Qua Discord</span>
             </div>
             <div class="trust-badge-item">
                 <span>🔄</span>
@@ -1669,65 +1669,58 @@
     <section class="store-stats-section">
         <div class="stats-grid-row">
             <div class="stat-metric-card">
-                <div class="stat-metric-number">1,850+</div>
-                <div class="stat-metric-label">Key Đã Phát Hành & Bán Ra</div>
+                <div class="stat-metric-number">100%</div>
+                <div class="stat-metric-label">Bảo Mật Băm SHA-256 + Salt</div>
             </div>
             <div class="stat-metric-card">
-                <div class="stat-metric-number">99.8%</div>
-                <div class="stat-metric-label">Tỷ Lệ Kích Hoạt Thành Công</div>
+                <div class="stat-metric-number">15+</div>
+                <div class="stat-metric-label">Key VIP Sẵn Sàng Cấp Ngay</div>
             </div>
             <div class="stat-metric-card">
-                <div class="stat-metric-number">4.9/5 ⭐</div>
-                <div class="stat-metric-label">Đánh Giá Từ Cộng Đồng Roblox</div>
+                <div class="stat-metric-number">Sea 1-2-3</div>
+                <div class="stat-metric-label">Tương Thích Mọi Bản Đồ King Legacy</div>
             </div>
             <div class="stat-metric-card">
-                <div class="stat-metric-number">24/7</div>
-                <div class="stat-metric-label">Hệ Thống Quét MB Bank Tự Động</div>
+                <div class="stat-metric-number">MB Bank</div>
+                <div class="stat-metric-label">Thanh Toán Trực Tiếp Chính Chủ</div>
             </div>
         </div>
     </section>
 
 
     <!-- ========================================================
-         SECTION: ĐÃ MUA GẦN ĐÂY (WUKONG HUD SOCIAL PROOF)
+         SECTION: QUY TRÌNH MUA & NHẬN KEY VIP MINH BẠCH
          ======================================================== -->
-    <section class="recent-orders-section" id="recent-orders">
-        <p class="section-kicker">Giao dịch tự động</p>
-        <h2 class="section-title-large">Đã Mua Gần Đây</h2>
-        <p class="section-desc-sub">Danh sách các đơn bản quyền VIP King Legacy được hệ thống xử lý tự động trong vài phút qua.</p>
+    <section class="recent-orders-section" id="how-to-buy" style="padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; text-align: center;">
+        <p class="section-kicker" style="color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Thanh Toán Trực Tiếp MB Bank</p>
+        <h2 class="section-title-large" style="font-size: 2rem; font-weight: 800; margin-bottom: 0.8rem;">Quy Trình Mua & Nhận Key VIP</h2>
+        <p class="section-desc-sub" style="color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.6; font-size: 0.95rem;">
+            Minh bạch 100% • Chuyển khoản trực tiếp vào tài khoản ngân hàng chính chủ Admin • Nhận mã Key riêng biệt trong 1 - 3 phút.
+        </p>
 
-        <div class="orders-list-box" id="ordersContainer">
-            <div class="order-row">
-                <div class="order-user-col">
-                    <div class="order-icon-badge">✓</div>
-                    <div>
-                        <div class="order-main-text"><strong>trun*******</strong> đã mua <strong>Gói VIP 1 Tháng (30 Ngày)</strong></div>
-                        <div class="order-time-text">Hệ thống YokaHub • 4 phút trước</div>
-                    </div>
-                </div>
-                <div class="order-status-badge">⚡ Giao Tự Động Trong 5s</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left;">
+            <div style="background: rgba(18, 24, 38, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden;">
+                <div style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.2rem;">1</div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">Chọn Gói & Quét Mã VietQR</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+                    Bấm chọn gói VIP 1 Tháng (50K) hoặc 3 Tháng (120K) ở bảng giá trên. Mở App Ngân Hàng bất kỳ và quét mã VietQR chính chủ <strong>MB Bank: 36390914112009 (NGUYEN HUYEN QUY)</strong>.
+                </p>
             </div>
 
-            <div class="order-row">
-                <div class="order-user-col">
-                    <div class="order-icon-badge" style="background: rgba(139, 92, 246, 0.15); color: #c084fc;">👑</div>
-                    <div>
-                        <div class="order-main-text"><strong>minh******</strong> đã mua <strong>Gói VIP 3 Tháng (90 Ngày)</strong></div>
-                        <div class="order-time-text">Hệ thống YokaHub • 12 phút trước</div>
-                    </div>
-                </div>
-                <div class="order-status-badge">⚡ Giao Tự Động Trong 5s</div>
+            <div style="background: rgba(18, 24, 38, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden;">
+                <div style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.2rem;">2</div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">Chụp Biên Lai Giao Dịch</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+                    Sau khi bấm xác nhận chuyển khoản thành công từ ngân hàng của bạn, chụp lại ảnh màn hình biên lai chuyển tiền thành công có đầy đủ mã giao dịch và nội dung.
+                </p>
             </div>
 
-            <div class="order-row">
-                <div class="order-user-col">
-                    <div class="order-icon-badge">✓</div>
-                    <div>
-                        <div class="order-main-text"><strong>hoan******</strong> đã mua <strong>Gói VIP 1 Tháng (30 Ngày)</strong></div>
-                        <div class="order-time-text">Hệ thống YokaHub • 28 phút trước</div>
-                    </div>
-                </div>
-                <div class="order-status-badge">⚡ Giao Tự Động Trong 5s</div>
+            <div style="background: rgba(18, 24, 38, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden;">
+                <div style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.2rem;">3</div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">Gửi Bill & Nhận Key VIP Ngay</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+                    Gửi ảnh bill cho Admin qua Discord hoặc kênh hỗ trợ. Admin sẽ kiểm tra tiền nổi trong tài khoản MB Bank và cấp ngay mã Key VIP chuỗi ký tự hỗn tạp cho bạn kích hoạt vào game!
+                </p>
             </div>
         </div>
     </section>
@@ -1811,7 +1804,7 @@
                     <span>+</span>
                 </div>
                 <div class="faq-a">
-                    Hệ thống MB Bank VietQR quét tự động. Sau khi bạn chuyển khoản đúng cú pháp, mã Key sẽ được cấp ngay trong vòng vài phút. Bạn cũng có thể mở Ticket trên Discord để được hỗ trợ tức thì.
+                    Sau khi bạn chuyển khoản thành công vào MB Bank theo đúng thông tin trên màn hình, bạn chụp ảnh màn hình biên lai gửi qua Discord hoặc nhắn tin cho Admin. Admin đối soát tiền đã vào tài khoản và sẽ cấp ngay mã Key VIP riêng biệt cho bạn trong vòng 1 - 3 phút.
                 </div>
             </div>
 
@@ -1995,11 +1988,11 @@
          MODAL 2: VIETQR MB BANK VIP PAYMENT
          ======================================================== -->
     <div id="paymentModal" class="modal-backdrop">
-        <div class="modal-window" style="max-width: 480px;">
+        <div class="modal-window" style="max-width: 500px;">
             <div class="modal-header">
                 <button class="btn-close-modal" onclick="closePaymentModal()">✕</button>
                 <h3 class="modal-title" id="payModalTitle">Thanh Toán VIP</h3>
-                <p class="modal-subtitle">Quét mã VietQR bằng bất kỳ App Ngân Hàng hoặc Ví Điện Tử nào để nhận Key tự động.</p>
+                <p class="modal-subtitle">Quét mã VietQR bằng App Ngân Hàng để chuyển khoản trực tiếp tới Admin.</p>
             </div>
 
             <div style="text-align: center;">
@@ -2010,31 +2003,48 @@
                 <div class="bank-info-grid">
                     <div class="bank-info-row">
                         <span>Ngân Hàng:</span>
-                        <span>MB Bank (Quân Đội)</span>
+                        <span style="font-weight: 700;">MB Bank (Quân Đội)</span>
                     </div>
                     <div class="bank-info-row">
                         <span>Số Tài Khoản:</span>
-                        <span id="payStk">36390914112009</span>
+                        <span id="payStk" style="font-weight: 700; color: #38bdf8;">36390914112009</span>
                     </div>
                     <div class="bank-info-row">
                         <span>Chủ Tài Khoản:</span>
-                        <span>NGUYEN HUYEN QUY</span>
+                        <span style="font-weight: 700; color: #fff;">NGUYEN HUYEN QUY</span>
                     </div>
                     <div class="bank-info-row">
                         <span>Số Tiền:</span>
-                        <span id="payAmount" style="color: #38bdf8;">50.000đ</span>
+                        <span id="payAmount" style="color: #38bdf8; font-weight: 800; font-size: 1.1rem;">50.000đ</span>
                     </div>
                     <div class="bank-info-row">
-                        <span>Nội Dung:</span>
-                        <span id="paySyntax" style="color: var(--accent-gold);">YOKA VIP ...</span>
+                        <span>Nội Dung CK:</span>
+                        <span id="paySyntax" style="color: var(--accent-gold); font-weight: 800; font-family: 'JetBrains Mono', monospace;">YOKA VIP ...</span>
                     </div>
                 </div>
 
-                <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem;">
-                    💡 Sau khi chuyển khoản, Admin sẽ kích hoạt Key VIP và gửi cho bạn qua Discord hoặc mã giao dịch.
+                <div style="display: flex; gap: 0.6rem; justify-content: center; margin-bottom: 1.2rem;">
+                    <button type="button" onclick="copyStk()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.8rem; cursor: pointer;">
+                        📋 Sao Chép STK
+                    </button>
+                    <button type="button" onclick="copySyntax()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.8rem; cursor: pointer;">
+                        📋 Sao Chép Nội Dung
+                    </button>
                 </div>
 
-                <button class="btn-modal-cancel" onclick="closePaymentModal()">Đóng Cửa Sổ</button>
+                <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 0.9rem 1.1rem; margin-bottom: 1.2rem; text-align: left; font-size: 0.82rem; color: #fde68a; line-height: 1.6;">
+                    ⚠️ <strong>QUY TRÌNH NHẬN KEY (MINH BẠCH 100%):</strong><br>
+                    1. Chuyển khoản đúng số tiền và nội dung ở trên.<br>
+                    2. Chụp ảnh màn hình biên lai chuyển khoản thành công.<br>
+                    3. Bấm nút <strong>[GỬI BILL CHO ADMIN]</strong> bên dưới để Admin kiểm tra tiền vào tài khoản và gửi mã Key VIP riêng biệt cho bạn ngay!
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem;">
+                    <a href="https://discord.gg/your-discord-link" target="_blank" style="text-decoration: none; padding: 0.85rem 1.2rem; border-radius: 10px; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, #5865F2, #4752C4); color: #fff; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.35);">
+                        💬 GỬI BILL CHO ADMIN QUA DISCORD ĐỂ LẤY KEY
+                    </a>
+                    <button class="btn-modal-cancel" onclick="closePaymentModal()" style="margin-top: 0;">Đóng Cửa Sổ</button>
+                </div>
             </div>
         </div>
     </div>
@@ -2213,6 +2223,17 @@
 
         function closePaymentModal() {
             document.getElementById('paymentModal').classList.remove('show');
+        }
+
+        function copyStk() {
+            navigator.clipboard.writeText("36390914112009");
+            alert("✓ Đã sao chép Số Tài Khoản MB Bank: 36390914112009\nChủ TK: NGUYEN HUYEN QUY");
+        }
+
+        function copySyntax() {
+            const syn = document.getElementById('paySyntax').innerText.trim();
+            navigator.clipboard.writeText(syn);
+            alert("✓ Đã sao chép Nội dung chuyển khoản: " + syn);
         }
 
         // Auto open if #verify or ?verify

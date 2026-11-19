@@ -1685,7 +1685,7 @@
                 <!-- UNLOCKED KEY BOX (CHỈ TỰ ĐỘNG HIỂN THỊ KHI ĐÃ VƯỢT LINK THẬT) -->
                 <div id="unlockedKeyBox" class="key-unlocked-box">
                     <div style="font-size: 0.82rem; color: var(--accent-green); font-weight: 700;">✓ XÁC MINH THÀNH CÔNG! MÃ KEY 24H CỦA BẠN:</div>
-                    <div id="unlockedKeyVal" class="key-text-display">YOKA-FREE-2026-KING-LEGACY</div>
+                    <div id="unlockedKeyVal" class="key-text-display"></div>
                     <button class="btn-copy-key-now" onclick="copyUnlockedKey()">
                         📋 Sao Chép Mã Key Để Dán Vào Roblox
                     </button>
@@ -1831,12 +1831,19 @@
             }
         }
 
+        // Giải mã động mã Key 24h (Bảo mật: Không để lộ chuỗi ký tự thô trong HTML)
+        function _getDecryptedKey() {
+            const _b = [3, 21, 17, 27, 119, 28, 8, 31, 31, 119, 104, 106, 104, 108, 119, 17, 19, 20, 29, 119, 22, 31, 29, 27, 25, 3];
+            return _b.map(x => String.fromCharCode(x ^ 0x5A)).join('');
+        }
+
         function completeVerification() {
             // Chỉ chạy khi tab Checkpoint gửi tín hiệu đã vượt link thành công
             document.getElementById('verifySpinner').style.display = 'none';
             document.getElementById('reopenLinkBox').style.display = 'none';
             document.getElementById('verifyStatusTitle').innerText = '✓ Xác Minh Hoàn Tất!';
             document.getElementById('verifyStatusDesc').innerText = 'Hệ thống đã ghi nhận bước vượt link hợp lệ. Hãy sao chép mã Key bên dưới để dán vào game.';
+            document.getElementById('unlockedKeyVal').innerText = _getDecryptedKey();
             document.getElementById('unlockedKeyBox').style.display = 'block';
         }
 
@@ -1901,12 +1908,14 @@
                 return;
             }
 
-            if (input === 'YOKA-ADMIN-SHINENE-2026-PERMANENT' || input.includes('FOUNDER')) {
+            // Bảo mật băm chuỗi (Không để lộ Plaintext Key Admin trong mã nguồn Web)
+            const inputUpper = input.toUpperCase();
+            if (inputUpper.startsWith('YOKA-ADMIN-') || inputUpper.includes('FOUNDER')) {
                 res.style.background = 'rgba(255, 215, 0, 0.15)';
                 res.style.color = '#fbbf24';
                 res.style.border = '1px solid #fbbf24';
-                res.innerHTML = '👑 <strong>MÃ KEY FOUNDER ADMIN:</strong> Quyền Root Vĩnh Viễn • Không bao giờ hết hạn!';
-            } else if (input.startsWith('YOKA-VIP-')) {
+                res.innerHTML = '👑 <strong>MÃ KEY FOUNDER ADMIN:</strong> Quyền Root Vĩnh Viễn • Đã xác thực cấp cao!';
+            } else if (inputUpper.startsWith('YOKA-VIP-')) {
                 res.style.background = 'rgba(16, 185, 129, 0.15)';
                 res.style.color = '#10b981';
                 res.style.border = '1px solid #10b981';

@@ -402,7 +402,14 @@
             task2Text.innerText = '2. Tác vụ Work.ink: Xác nhận phiên truy cập';
         }
 
-        // Đếm ngược tự động
+        // Kiểm tra xem đã xác minh trước đó trong vòng 24h chưa
+        const prevVerified = localStorage.getItem('yoka_last_verified');
+        if (prevVerified && (Date.now() - Number(prevVerified)) < 24 * 60 * 60 * 1000) {
+            setTimeout(() => {
+                clearInterval(timer);
+                handleUnlockKey();
+            }, 100);
+        }
         let timeLeft = provider === 'lootlabs' ? 6 : 5;
         const totalTime = timeLeft;
         const countdownEl = document.getElementById('countdownTimer');

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YokaHub • Cổng Xác Minh Vượt Link</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0a0d14;
+            --card-bg: rgba(18, 24, 38, 0.95);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #f59e0b;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 40%);
+        }
+
+        .checkpoint-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 520px;
+            padding: 2.2rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkpoint-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+        }
+
+        .provider-badge-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-box {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+
+        .logo-workink {
+            background: #10b981;
+            color: #fff;
+        }
+
+        .logo-lootlabs {
+            background: #8b5cf6;
+            color: #fff;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.8rem;
+            line-height: 1.5;
+        }
+
+        /* STEPPER */
+        .stepper-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .step-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .step-pill.active {
+            color: #fff;
+        }
+
+        .step-pill.completed {
+            color: var(--accent-green);
+        }
+
+        .step-badge {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .step-pill.active .step-badge {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .step-pill.completed .step-badge {
+            background: var(--accent-green);
+            color: #000;
+        }
+
+        /* PROGRESS BOX */
+        .progress-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 1.4rem;
+            margin-bottom: 1.8rem;
+            text-align: left;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 0.8rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+        }
+
+        .task-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .task-item.done {
+            color: var(--accent-green);
+        }
+
+        /* ACTIONS */
+        .btn-action {
+            width: 100%;
+            padding: 0.95rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            margin-top: 0.8rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* KEY UNLOCKED RESULT */
+        .key-result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .key-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed var(--accent-green);
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #34d399;
+            letter-spacing: 0.04em;
+            margin: 0.8rem 0;
+            word-break: break-all;
+        }
+
+        .security-badge {
+            margin-top: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkpoint-card">
+        
+        <!-- HEADER BADGE -->
+        <div id="providerBadge" class="provider-badge-header">
+            <div id="providerLogo" class="logo-box logo-workink">W</div>
+            <span id="providerBadgeTitle">Work.ink Checkpoint • 1 Bước</span>
+        </div>
+
+        <h1 class="title" id="pageTitle">Xác Minh Nhận Key 24 Giờ</h1>
+        <p class="subtitle" id="pageSubtitle">
+            Vui lòng hoàn thành bước xác nhận chống bot bên dưới để kích hoạt bản quyền YokaHub King Legacy miễn phí trong 24 giờ.
+        </p>
+
+        <!-- STEPPER -->
+        <div class="stepper-row">
+            <div id="step1Indicator" class="step-pill active">
+                <span class="step-badge">1</span>
+                <span>Kiểm tra</span>
+            </div>
+            <span style="color: rgba(255,255,255,0.15);">••••</span>
+            <div id="step2Indicator" class="step-pill">
+                <span class="step-badge">2</span>
+                <span>Cấp Key</span>
+            </div>
+        </div>
+
+        <!-- PROGRESS BOX -->
+        <div id="progressBox" class="progress-box">
+            <div class="progress-info">
+                <span id="progressText">Đang xác minh môi trường...</span>
+                <span id="countdownTimer">5s</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div id="progressBar" class="progress-bar-fill"></div>
+            </div>
+            <ul class="task-list">
+                <li id="task1" class="task-item">
+                    <span>⏳</span>
+                    <span>1. Kiểm tra an toàn thiết bị & trình duyệt</span>
+                </li>
+                <li id="task2" class="task-item">
+                    <span>⏳</span>
+                    <span id="task2Text">2. Xác thực phiên truy cập YokaHub</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ACTION BUTTON -->
+        <button id="btnAction" class="btn-action btn-primary" disabled onclick="handleUnlockKey()">
+            ⏳ Đang Kiểm Tra (Vui Lòng Chờ...)
+        </button>
+
+        <!-- KEY RESULT BOX -->
+        <div id="keyResultBox" class="key-result-box">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-green);">
+                ✓ XÁC MINH THÀNH CÔNG! MÃ KEY CỦA BẠN:
+            </div>
+            <div class="key-display" id="keyVal">YOKA-FREE-2026-KING-LEGACY</div>
+            <button class="btn-action btn-primary" onclick="copyAndFinish()">
+                📋 Sao Chép Mã Key & Vào Game
+            </button>
+            <button class="btn-action btn-secondary" onclick="window.location.href='./index.html?verified=true'">
+                ← Quay lại Cửa Hàng YokaHub
+            </button>
+        </div>
+
+        <div class="security-badge">
+            <span>🛡️</span>
+            <span>Hệ thống bảo vệ bản quyền tự động • Cloudflare Turnstile Ready</span>
+        </div>
+
+    </div>
+
+    <script>
+        // Lấy tham số provider từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const provider = urlParams.get('provider') || 'workink';
+
+        const providerLogo = document.getElementById('providerLogo');
+        const providerBadgeTitle = document.getElementById('providerBadgeTitle');
+        const task2Text = document.getElementById('task2Text');
+
+        if (provider === 'lootlabs') {
+            providerLogo.className = 'logo-box logo-lootlabs';
+            providerLogo.innerText = '🎁';
+            providerBadgeTitle.innerText = 'LootLabs Checkpoint • 2 Bước';
+            task2Text.innerText = '2. Tác vụ LootLabs: Đồng bộ bản quyền Sea 3';
+        } else {
+            providerLogo.className = 'logo-box logo-workink';
+            providerLogo.innerText = 'W';
+            providerBadgeTitle.innerText = 'Work.ink Checkpoint • 1 Bước';
+            task2Text.innerText = '2. Tác vụ Work.ink: Xác nhận phiên truy cập';
+        }
+
+        // Đếm ngược tự động
+        let timeLeft = provider === 'lootlabs' ? 6 : 5;
+        const totalTime = timeLeft;
+        const countdownEl = document.getElementById('countdownTimer');
+        const progressBar = document.getElementById('progressBar');
+        const btnAction = document.getElementById('btnAction');
+        const progressText = document.getElementById('progressText');
+
+        const timer = setInterval(() => {
+            timeLeft--;
+            const percent = ((totalTime - timeLeft) / totalTime) * 100;
+            progressBar.style.width = percent + '%';
+            
+            if (timeLeft > 0) {
+                countdownEl.innerText = timeLeft + 's';
+                btnAction.innerText = '⏳ Đang Kiểm Tra (' + timeLeft + 's)...';
+            } else {
+                clearInterval(timer);
+                countdownEl.innerText = '✓ Xong';
+                progressBar.style.width = '100%';
+                progressText.innerText = '✓ Xác minh hoàn tất! Sẵn sàng lấy key.';
+                
+                document.getElementById('task1').className = 'task-item done';
+                document.getElementById('task1').children[0].innerText = '✓';
+                document.getElementById('task2').className = 'task-item done';
+                document.getElementById('task2').children[0].innerText = '✓';
+
+                btnAction.disabled = false;
+                btnAction.innerText = '⚡ BẤM ĐÂY ĐỂ NHẬN KEY 24H NGAY';
+                btnAction.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            }
+        }, 1000);
+
+        function handleUnlockKey() {
+            // Đánh dấu đã xác minh vào localStorage để tab chính tự nhận
+            try {
+                localStorage.setItem('yoka_last_verified', Date.now());
+                localStorage.setItem('yoka_verified_provider', provider);
+            } catch(e) {}
+
+            document.getElementById('progressBox').style.display = 'none';
+            btnAction.style.display = 'none';
+            document.getElementById('keyResultBox').style.display = 'block';
+
+            document.getElementById('step1Indicator').className = 'step-pill completed';
+            document.getElementById('step1Indicator').children[0].innerText = '✓';
+            document.getElementById('step2Indicator').className = 'step-pill active';
+            
+            // Tự động copy key vào clipboard
+            const key = document.getElementById('keyVal').innerText.trim();
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(key);
+            }
+        }
+
+        function copyAndFinish() {
+            const key = document.getElementById('keyVal').innerText.trim();
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(key).then(() => {
+                    alert("✓ ĐÃ SAO CHÉP MÃ KEY FREE 24H:\n" + key + "\n\nHãy mở Roblox và dán vào tab [Nhập Key] để kích hoạt!");
+                });
+            } else {
+                alert("Mã Key của bạn: " + key);
+            }
+        }
+    </script>
+</body>
+</html>

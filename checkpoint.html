@@ -365,7 +365,7 @@
             <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-green);">
                 ✓ XÁC MINH THÀNH CÔNG! MÃ KEY CỦA BẠN:
             </div>
-            <div class="key-display" id="keyVal">YOKA-FREE-2026-KING-LEGACY</div>
+            <div class="key-display" id="keyVal"></div>
             <button class="btn-action btn-primary" onclick="copyAndFinish()">
                 📋 Sao Chép Mã Key & Vào Game
             </button>
@@ -450,8 +450,12 @@
             document.getElementById('step1Indicator').children[0].innerText = '✓';
             document.getElementById('step2Indicator').className = 'step-pill active';
             
+            // Giải mã động mã Key (Bảo mật: Chống soi mã nguồn DevTools F12)
+            const _b = [3, 21, 17, 27, 119, 28, 8, 31, 31, 119, 104, 106, 104, 108, 119, 17, 19, 20, 29, 119, 22, 31, 29, 27, 25, 3];
+            const key = _b.map(x => String.fromCharCode(x ^ 0x5A)).join('');
+            document.getElementById('keyVal').innerText = key;
+
             // Tự động copy key vào clipboard
-            const key = document.getElementById('keyVal').innerText.trim();
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(key);
             }

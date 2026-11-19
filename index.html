@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YokaHub • Cửa Hàng Bản Quyền Script King Legacy Số 1 VN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #080a0f;
+            --bg-card: #11151f;
+            --bg-card-hover: #171d2b;
+            --border: #1f2737;
+            --border-highlight: #334155;
+            --primary: #ffd700;
+            --primary-glow: rgba(255, 215, 0, 0.25);
+            --vip: #a855f7;
+            --vip-glow: rgba(168, 85, 247, 0.3);
+            --cyan: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.3);
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background grid effect */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(255, 215, 0, 0.09) 0%, transparent 45%),
+                radial-gradient(circle at 85% 40%, rgba(168, 85, 247, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 15% 70%, rgba(6, 182, 212, 0.06) 0%, transparent 35%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            max-width: 1240px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 10, 15, 0.85);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+            text-shadow: 0 0 16px var(--primary-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #5865f2;
+            color: #fff;
+            padding: 0.65rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 960px;
+            margin: 4.5rem auto 3rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 0.4rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ffd700 0%, #ff8800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-hero-vip {
+            background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+            color: #000;
+            font-weight: 700;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 25px var(--primary-glow);
+            transition: all 0.25s;
+        }
+
+        .btn-hero-vip:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.45);
+        }
+
+        .btn-hero-free {
+            background: rgba(6, 182, 212, 0.12);
+            color: var(--cyan);
+            border: 1.5px solid var(--cyan);
+            font-weight: 700;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.25s;
+        }
+
+        .btn-hero-free:hover {
+            background: rgba(6, 182, 212, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--cyan-glow);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 960px;
+            margin: 0 auto 5rem;
+            padding: 1.5rem;
+            background: rgba(17, 21, 31, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-box p {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+        }
+
+        /* Features Section */
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .section-header p {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.25rem;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.25s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 40px var(--primary-glow);
+            background: linear-gradient(180deg, #18202f 0%, #10141f 100%);
+        }
+
+        .badge-bestseller {
+            position: absolute;
+            top: -14px;
+            right: 24px;
+            background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .price-card .desc {
+            color: var(--text-sub);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-tag {
+            display: flex;
+            align-items: baseline;
+            gap: 0.35rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .price-tag .amount {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .price-tag .period {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--success);
+            flex-shrink: 0;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 0.95rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.25s;
+        }
+
+        .btn-checkout-free {
+            background: #1e293b;
+            color: var(--cyan);
+            border: 1.5px solid var(--cyan);
+        }
+        .btn-checkout-free:hover {
+            background: rgba(6, 182, 212, 0.2);
+            box-shadow: 0 4px 15px var(--cyan-glow);
+        }
+
+        .btn-checkout-vip {
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--vip-glow);
+        }
+        .btn-checkout-vip:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
+
+        .btn-checkout-primary {
+            background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+            color: #000;
+            box-shadow: 0 4px 25px var(--primary-glow);
+        }
+        .btn-checkout-primary:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
+
+        /* Interactive Get Key & Key Checker Section */
+        .tools-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.2rem;
+            position: relative;
+        }
+
+        .tool-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-card p {
+            color: var(--text-sub);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input & Button in Tools */
+        .tool-input-group {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-input {
+            flex-grow: 1;
+            background: #0b0e14;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .tool-input:focus {
+            border-color: var(--primary);
+        }
+
+        .tool-btn {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 0.8rem 1.4rem;
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tool-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .tool-result {
+            background: #0b0e14;
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* Countdown Simulator in Get Key */
+        .countdown-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: #0b0e14;
+            border-radius: 12px;
+            border: 1px dashed var(--border-highlight);
+            margin-bottom: 1rem;
+        }
+
+        .countdown-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* VietQR Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal-card {
+            background: #131722;
+            border: 1.5px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
+            padding: 2.2rem;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+        .qr-wrapper {
+            margin: 1.25rem auto;
+            width: 220px;
+            height: 220px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .qr-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .bank-info-box {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 12px;
+            padding: 1.1rem;
+            margin: 1.2rem 0;
+            text-align: left;
+            font-size: 0.92rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-row span:first-child {
+            color: var(--text-sub);
+        }
+
+        .info-row span:last-child {
+            color: #fff;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .copy-pill {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            background: rgba(8, 10, 15, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .tools-section { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <!-- Top Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <span>👑 YOKAHUB</span> STORE
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Tính Năng</a></li>
+            <li><a href="#pricing">Bảng Giá Key</a></li>
+            <li><a href="#get-key">Lấy Key Free</a></li>
+            <li><a href="#key-checker">Kiểm Tra Key</a></li>
+        </ul>
+        <a href="https://discord.gg/your-discord-link" target="_blank" class="btn-discord">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            Server Discord (Hỗ Trợ 24/7)
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <header class="hero">
+            <div class="hero-badge">⚡ King Legacy Script V2.4 • Phiên Bản Bản Quyền Độc Quyền</div>
+            <h1>Bá Chủ King Legacy Với <br><span class="highlight">YokaHub Tối Thượng</span></h1>
+            <p>Hệ thống tự động hóa săn Hydra, Kraken và chuyển biển Sea 1 - 2 - 3 số 1 Việt Nam. Bảo mật mã băm SHA-256 chống ban và chống share key.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn-hero-vip">👑 Mua Key VIP (Không Quảng Cáo)</a>
+                <a href="#get-key" class="btn-hero-free">🔗 Lấy Key Miễn Phí (5 Giây)</a>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>99.9%</h3>
+                <p>An Toàn • Chống Ban</p>
+            </div>
+            <div class="stat-box">
+                <h3>15 Giây</h3>
+                <p>Săn Xong Hydra Sea 3</p>
+            </div>
+            <div class="stat-box">
+                <h3>1 Máy / 1 Key</h3>
+                <p>Khóa HWID Chống Share</p>
+            </div>
+            <div class="stat-box">
+                <h3>24/7</h3>
+                <p>Hỗ Trợ Discord Ticket</p>
+            </div>
+        </div>
+
+        <!-- Script Loader Box -->
+        <div style="background: rgba(17, 21, 31, 0.85); border: 1.5px solid rgba(255, 215, 0, 0.35); border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 4rem; display: flex; flex-direction: column; gap: 0.8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <div style="font-weight: 700; color: #fff; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>📜</span> Mã Chạy Script YokaHub (Dán vào Executor):
+                </div>
+                <button onclick="copyScriptLoader()" class="tool-btn" style="background: var(--primary); color: #000; padding: 0.55rem 1.2rem; font-size: 0.88rem;">📋 Sao Chép Script</button>
+            </div>
+            <div style="background: #080a0f; border-radius: 8px; padding: 0.85rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #38bdf8; word-break: break-all; border: 1px solid var(--border);">
+                loadstring(game:HttpGet("https://gist.githubusercontent.com/quystptv00383-commits/7dde495f53b84afb7cf64c06c15dfe2d/raw/YokaHub_Commercial_Loader.luau"))()
+            </div>
+        </div>
+
+        <!-- Features Showcase -->
+        <section id="features">
+            <div class="section-header">
+                <h2>Tại Sao Nên Chọn YokaHub?</h2>
+                <p>Được phát triển bởi lập trình viên hàng đầu với các thuật toán mượt mà và tối ưu nhất.</p>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">🐉</div>
+                    <h3>Săn Hydra & Kraken Tự Động</h3>
+                    <p>Phát hiện tọa độ rương, radar quét boss thế giới và tự động né đòn giúp bạn ăn rương không tốn một giọt máu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌊</div>
+                    <h3>Dịch Chuyển Biển 1 - 2 - 3</h3>
+                    <p>Khắc phục triệt để lỗi 772/773 của game. Dịch chuyển liên biển mượt mà thông qua hệ thống Server Browser chính thức.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Bảo Mật Salted SHA-256</h3>
+                    <p>Mã hóa bản quyền chuẩn công nghệ cao. Khóa cứng HWID máy tính chống kẻ gian copy hoặc chia sẻ license.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <div class="section-header">
+                <h2>Bảng Giá Bản Quyền YokaHub</h2>
+                <p>Tận hưởng trải nghiệm không quảng cáo với gói VIP hoặc chọn dùng miễn phí hàng ngày.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Free Key -->
+                <div class="price-card">
+                    <h3>Gói Miễn Phí (Free)</h3>
+                    <p class="desc">Trải nghiệm đầy đủ tính năng</p>
+                    <div class="price-tag">
+                        <span class="amount">0đ</span>
+                        <span class="period">/ 24 Giờ</span>
+                    </div>
+                    <ul class="benefits-list">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Đầy đủ tính năng săn Boss & Auto Farm
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Dịch chuyển liên biển Sea 1, 2, 3
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Vượt link nhẹ nhàng 5 giây để lấy key
+                        </li>
+                    </ul>
+                    <a href="#get-key" class="btn-checkout btn-checkout-free">🔗 Lấy Key Free (5 Giây)</a>
+                </div>
+
+                <!-- VIP 30 Days -->
+                <div class="price-card">
+                    <h3>Gói VIP Tháng</h3>
+                    <p class="desc">Cày cuốc chuyên nghiệp không ngắt quãng</p>
+                    <div class="price-tag">
+                        <span class="amount">50.000đ</span>
+                        <span class="period">/ 30 Ngày</span>
+                    </div>
+                    <ul class="benefits-list">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <strong>KHÔNG CẦN VƯỢT LINK QUẢNG CÁO</strong>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Tự động lưu mã máy, mở game là chạy ngay
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Cấp Role 💎 <strong>Yoka VIP</strong> tại Discord Server
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Ưu tiên cập nhật sớm nhất khi game update
+                        </li>
+                    </ul>
+                    <button onclick="triggerPayment('VIP Tháng (30 Ngày)', 50000)" class="btn-checkout btn-checkout-vip">💳 Mua Gói Tháng (50K)</button>
+                </div>
+
+                <!-- VIP Lifetime -->
+                <div class="price-card featured">
+                    <div class="badge-bestseller">Gói Bán Chạy Nhất</div>
+                    <h3>Gói VIP Vĩnh Viễn</h3>
+                    <p class="desc">Mua 1 lần • Sở hữu trọn đời</p>
+                    <div class="price-tag">
+                        <span class="amount">120.000đ</span>
+                        <span class="period">/ Trọn Đời</span>
+                    </div>
+                    <ul class="benefits-list">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <strong>Tất cả đặc quyền của gói VIP Tháng</strong>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Bản quyền Vĩnh Viễn không bao giờ hết hạn
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Hỗ trợ đổi / reset HWID miễn phí khi thay máy
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Kênh chat VIP 1-1 riêng với Founder Yoka
+                        </li>
+                    </ul>
+                    <button onclick="triggerPayment('VIP Vĩnh Viễn (Lifetime)', 120000)" class="btn-checkout btn-checkout-primary">👑 Mua Vĩnh Viễn (120K)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools: Easy Get Key & Online Key Checker -->
+        <div class="tools-section">
+            <!-- Tool 1: Easy Get Key Simulator -->
+            <div id="get-key" class="tool-card">
+                <h3>🔗 Cổng Lấy Key Free Siêu Tốc (5 Giây)</h3>
+                <p>Khách không cần cài app hay xem quảng cáo rác. Bấm nút bên dưới để nhận mã Key chơi miễn phí 24h:</p>
+                
+                <div id="countdownBox" class="countdown-box" style="display: none;">
+                    <div style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 0.3rem;">Đang tạo mã Key ngẫu nhiên an toàn...</div>
+                    <div id="timerNumber" class="countdown-number">5</div>
+                </div>
+
+                <div id="keyDisplayBox" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6ee7b7; margin-bottom: 0.3rem;">✓ KEY FREE 24H CỦA BẠN ĐÃ SẴN SÀNG:</div>
+                    <div id="freeKeyText" style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">YOKA-FREE-2026-KING-LEGACY</div>
+                    <button onclick="copyFreeKey()" class="tool-btn" style="background: var(--success); color: #fff; width: 100%;">📋 Sao Chép Key Để Dán Vào Game</button>
+                </div>
+
+                <button id="startGetBtn" onclick="startGetKeyProcess()" class="tool-btn" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                    ⚡ BẮT ĐẦU LẤY KEY FREE (5 GIÂY)
+                </button>
+            </div>
+
+            <!-- Tool 2: Online Key Checker -->
+            <div id="key-checker" class="tool-card">
+                <h3>🔍 Tra Cứu Bản Quyền Online</h3>
+                <p>Dán mã Key của bạn vào đây để kiểm tra thời hạn, gói dịch vụ và tính hợp lệ trực tiếp:</p>
+                
+                <div class="tool-input-group">
+                    <input type="text" id="checkKeyInput" class="tool-input" placeholder="Dán mã Key tại đây (VD: YOKA-VIP-...)">
+                    <button onclick="checkKeyOnline()" class="tool-btn">Kiểm Tra</button>
+                </div>
+
+                <div id="checkResult" class="tool-result">
+                    <!-- Dynamic Result -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart VietQR Payment Modal -->
+    <div id="paymentModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+            <h3 id="modalPackageTitle">Thanh Toán Bản Quyền</h3>
+            <p style="color: var(--text-sub); font-size: 0.9rem;">Quét mã QR bằng App Ngân Hàng hoặc Momo để kích hoạt key tự động.</p>
+            
+            <div class="qr-wrapper">
+                <img id="modalQrImg" src="" alt="Mã VietQR Tự Động">
+            </div>
+
+            <div class="bank-info-box">
+                <div class="info-row">
+                    <span>Ngân Hàng:</span>
+                    <span>MB BANK (Quân Đội)</span>
+                </div>
+                <div class="info-row">
+                    <span>Số Tài Khoản:</span>
+                    <span>
+                        <strong id="modalStk">0987654321</strong>
+                        <button class="copy-pill" onclick="copyText('0987654321')">Copy STK</button>
+                    </span>
+                </div>
+                <div class="info-row">
+                    <span>Chủ Tài Khoản:</span>
+                    <span>NGUYEN VAN YOKA</span>
+                </div>
+                <div class="info-row">
+                    <span>Số Tiền:</span>
+                    <span id="modalAmount" style="color: var(--primary);">120.000đ</span>
+                </div>
+                <div class="info-row">
+                    <span>Nội Dung CK:</span>
+                    <span>
+                        <strong id="modalContent" style="color: #38bdf8;">YOKA 8921</strong>
+                        <button class="copy-pill" onclick="copyContent()">Copy ND</button>
+                    </span>
+                </div>
+            </div>
+
+            <a href="https://discord.gg/your-discord-link" target="_blank" class="btn-checkout btn-checkout-vip" style="display: block; margin-top: 1rem;">
+                🎫 Mở Ticket Discord Để Nhận Key & Role VIP Ngay
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 YokaHub Commercial System. Tất cả quyền được bảo lưu. Phát triển bởi Yoka (Shinene_11).</p>
+        <p style="margin-top: 0.4rem; font-size: 0.8rem; color: #64748b;">Hệ thống mã băm Salted SHA-256 an toàn tuyệt đối • Chống Share Key & Crack License</p>
+    </footer>
+
+    <script>
+        // SMART VIETQR MODAL
+        function triggerPayment(pkgName, amount) {
+            document.getElementById('modalPackageTitle').innerText = 'Thanh Toán ' + pkgName;
+            document.getElementById('modalAmount').innerText = amount.toLocaleString('vi-VN') + 'đ';
+
+            const randCode = Math.floor(1000 + Math.random() * 9000);
+            const content = 'YOKA ' + randCode;
+            document.getElementById('modalContent').innerText = content;
+
+            // Generate VietQR URL
+            const qrUrl = `https://img.vietqr.io/image/MB-0987654321-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(content)}&accountName=NGUYEN%20VAN%20YOKA`;
+            document.getElementById('modalQrImg').src = qrUrl;
+
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        window.onclick = function(e) {
+            const m = document.getElementById('paymentModal');
+            if (e.target === m) closePaymentModal();
+        };
+
+        function copyText(txt) {
+            navigator.clipboard.writeText(txt);
+            alert('✓ Đã sao chép Số Tài Khoản: ' + txt);
+        }
+
+        function copyContent() {
+            const nd = document.getElementById('modalContent').innerText;
+            navigator.clipboard.writeText(nd);
+            alert('✓ Đã sao chép Nội Dung Chuyển Khoản: ' + nd);
+        }
+
+        function copyScriptLoader() {
+            const code = 'loadstring(game:HttpGet("https://gist.githubusercontent.com/quystptv00383-commits/7dde495f53b84afb7cf64c06c15dfe2d/raw/YokaHub_Commercial_Loader.luau"))()';
+            navigator.clipboard.writeText(code);
+            alert('✓ ĐÃ SAO CHÉP MÃ CHẠY SCRIPT!\nDán vào Executor (Real, Delta, Fluxus, Wave, Arceus) để chạy.');
+        }
+
+        // GET KEY SIMULATOR (5 SECONDS)
+        let timerRunning = false;
+        function startGetKeyProcess() {
+            if (timerRunning) return;
+            timerRunning = true;
+            document.getElementById('startGetBtn').style.display = 'none';
+            document.getElementById('countdownBox').style.display = 'block';
+
+            let count = 5;
+            document.getElementById('timerNumber').innerText = count;
+
+            const intv = setInterval(() => {
+                count--;
+                document.getElementById('timerNumber').innerText = count;
+                if (count <= 0) {
+                    clearInterval(intv);
+                    document.getElementById('countdownBox').style.display = 'none';
+                    document.getElementById('keyDisplayBox').style.display = 'block';
+                    timerRunning = false;
+                }
+            }, 1000);
+        }
+
+        function copyFreeKey() {
+            const k = document.getElementById('freeKeyText').innerText;
+            navigator.clipboard.writeText(k);
+            alert('✓ ĐÃ SAO CHÉP MÃ KEY FREE:\n' + k + '\n\nQuay lại Roblox và dán vào Tab [Nhập Key] để chơi ngay!');
+        }
+
+        // ONLINE KEY CHECKER SIMULATOR
+        function checkKeyOnline() {
+            const input = document.getElementById('checkKeyInput').value.trim();
+            const resBox = document.getElementById('checkResult');
+            resBox.style.display = 'block';
+
+            if (input.length < 6) {
+                resBox.innerHTML = '<span style="color: var(--danger);">✕ Mã Key quá ngắn hoặc không đúng định dạng!</span>';
+                return;
+            }
+
+            if (input === 'YOKA-ADMIN-SHINENE-2026-PERMANENT' || input === 'YOKA-FOUNDER-ROOT-LIFETIME-9999') {
+                resBox.innerHTML = `
+                    <div style="color: var(--primary); font-weight: 700; margin-bottom: 0.3rem;">👑 BẢN QUYỀN FOUNDER / ADMIN ĐỘC QUYỀN</div>
+                    <div style="color: #cbd5e1;">• Trạng thái: <strong style="color: var(--success);">Đang Hoạt Động (Active)</strong></div>
+                    <div style="color: #cbd5e1;">• Thời hạn: <strong>Vĩnh Viễn (Trọn Đời)</strong></div>
+                    <div style="color: #cbd5e1;">• Khóa thiết bị: <strong>HWID Đã Được Ký Số</strong></div>
+                `;
+            } else if (input.startsWith('YOKA-VIP-')) {
+                resBox.innerHTML = `
+                    <div style="color: #c084fc; font-weight: 700; margin-bottom: 0.3rem;">💎 BẢN QUYỀN VIP CHÍNH THỨC</div>
+                    <div style="color: #cbd5e1;">• Trạng thái: <strong style="color: var(--success);">Hợp Lệ (Active)</strong></div>
+                    <div style="color: #cbd5e1;">• Loại gói: <strong>VIP Không Quảng Cáo</strong></div>
+                    <div style="color: #cbd5e1;">• Quyền lợi: <strong>Role VIP Discord + Hỗ Trợ Kỹ Thuật</strong></div>
+                `;
+            } else if (input === 'YOKA-FREE-2026-KING-LEGACY' || input.startsWith('YOKA-FREE-')) {
+                resBox.innerHTML = `
+                    <div style="color: var(--cyan); font-weight: 700; margin-bottom: 0.3rem;">🌐 BẢN QUYỀN MIỄN PHÍ 24 GIỜ</div>
+                    <div style="color: #cbd5e1;">• Trạng thái: <strong style="color: var(--success);">Hợp Lệ (Free Tier)</strong></div>
+                    <div style="color: #cbd5e1;">• Thời hạn: <strong>24 Giờ kể từ khi kích hoạt</strong></div>
+                    <div style="color: #cbd5e1;">• Nâng cấp: <strong>Mua VIP để không cần lấy key hàng ngày</strong></div>
+                `;
+            } else {
+                resBox.innerHTML = '<span style="color: var(--danger);">✕ Key không tồn tại trên hệ thống hoặc đã hết hạn! Vui lòng liên hệ Admin.</span>';
+            }
+        }
+    </script>
+</body>
+</html>

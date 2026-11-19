@@ -1059,21 +1059,21 @@
                     </li>
                     <li class="feature-item feature-item muted">
                         <span class="feature-icon icon-cross">✕</span>
-                        Không hỗ trợ lưu License vĩnh viễn
+                        Không hỗ trợ lưu License dài hạn (Key có hạn 24 giờ)
                     </li>
                 </ul>
             </div>
 
             <!-- 2. VIP THÁNG (30 NGÀY) -->
             <div class="pricing-card">
-                <span class="card-pill pill-month">🔥 Phổ biến nhất</span>
-                <h3 class="card-title">VIP Tháng</h3>
+                <span class="card-pill pill-month">1 Tháng (30 Ngày)</span>
+                <h3 class="card-title">Gói 1 Tháng</h3>
                 <p class="card-desc">Cày cuốc chuyên nghiệp không ngắt quãng, loại bỏ hoàn toàn các bước quảng cáo.</p>
                 <div class="card-price">
                     50.000đ <span>/ 30 ngày</span>
                 </div>
-                <button class="btn-card btn-month" onclick="openPaymentModal('VIP Tháng (30 Ngày)', 50000)">
-                    Mua Gói Tháng (50K)
+                <button class="btn-card btn-month" onclick="openPaymentModal('VIP 1 Tháng (30 Ngày)', 50000)">
+                    Mua Gói 1 Tháng (50K)
                 </button>
                 <ul class="features-list">
                     <li class="feature-item">
@@ -1099,25 +1099,29 @@
                 </ul>
             </div>
 
-            <!-- 3. VIP VĨNH VIỄN (LIFETIME) -->
+            <!-- 3. VIP 3 THÁNG (90 NGÀY) -->
             <div class="pricing-card featured">
-                <span class="card-pill pill-lifetime">👑 Khuyên dùng • Trọn đời</span>
-                <h3 class="card-title">VIP Vĩnh Viễn</h3>
-                <p class="card-desc">Mua một lần duy nhất, sở hữu bản quyền vĩnh viễn trọn đời không giới hạn.</p>
+                <span class="card-pill pill-lifetime">👑 Tiết kiệm nhất • 90 Ngày</span>
+                <h3 class="card-title">Gói 3 Tháng</h3>
+                <p class="card-desc">Gói được ưa chuộng nhất, tiết kiệm ngay 30.000đ so với gia hạn từng tháng.</p>
                 <div class="card-price">
-                    120.000đ <span>/ Trọn đời</span>
+                    120.000đ <span>/ 3 tháng (90 ngày)</span>
                 </div>
-                <button class="btn-card btn-lifetime" onclick="openPaymentModal('VIP Vĩnh Viễn (Lifetime)', 120000)">
-                    Mua Vĩnh Viễn (120K)
+                <button class="btn-card btn-lifetime" onclick="openPaymentModal('VIP 3 Tháng (90 Ngày)', 120000)">
+                    Mua Gói 3 Tháng (120K)
                 </button>
                 <ul class="features-list">
                     <li class="feature-item">
                         <span class="feature-icon icon-check">✓</span>
-                        <strong>TẤT CẢ ĐẶC QUYỀN CỦA GÓI VIP THÁNG</strong>
+                        <strong>TẤT CẢ ĐẶC QUYỀN CỦA GÓI VIP 1 THÁNG</strong>
                     </li>
                     <li class="feature-item">
                         <span class="feature-icon icon-check">✓</span>
-                        Bản quyền Vĩnh Viễn không bao giờ hết hạn
+                        Thời hạn 90 ngày (Tiết kiệm 30.000đ so với mua lẻ)
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon icon-check">✓</span>
+                        Bỏ qua hoàn toàn quảng cáo, mở game là vào thẳng
                     </li>
                     <li class="feature-item">
                         <span class="feature-icon icon-check">✓</span>
@@ -1125,11 +1129,7 @@
                     </li>
                     <li class="feature-item">
                         <span class="feature-icon icon-check">✓</span>
-                        Trải nghiệm sớm nhất các bản cập nhật Sea mới
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon icon-check">✓</span>
-                        Kênh chat 1-1 riêng với Founder Yoka (Shinene_11)
+                        Role VIP 💎 và hỗ trợ kỹ thuật ưu tiên 24/7 trên Discord
                     </li>
                 </ul>
             </div>
@@ -1197,7 +1197,7 @@
                     </div>
                     <div class="promo-content">
                         <h4 class="promo-title">Dùng YokaHub không cần bước quảng cáo</h4>
-                        <p class="promo-desc">VIP và Trọn Đời bỏ qua bước quảng cáo của key miễn phí và luôn giữ YokaHub sẵn sàng khi bạn cần.</p>
+                        <p class="promo-desc">Gói 1 Tháng và 3 Tháng bỏ qua hoàn toàn bước quảng cáo của key miễn phí và luôn giữ YokaHub sẵn sàng.</p>
                         <button class="btn-promo-action" onclick="switchToVipPurchase()">Xem các gói</button>
                     </div>
                 </div>
@@ -1393,7 +1393,7 @@
 
         function switchToVipPurchase() {
             closeVerifyModal();
-            openPaymentModal('VIP Vĩnh Viễn (Lifetime)', 120000);
+            openPaymentModal('VIP 3 Tháng (90 Ngày)', 120000);
         }
 
         // PAYMENT MODAL CONTROLS
@@ -1403,7 +1403,7 @@
             document.getElementById('payAmount').innerText = amount.toLocaleString('vi-VN') + 'đ';
             
             const randomCode = Math.floor(1000 + Math.random() * 9000);
-            const syntax = 'YOKA ' + (amount === 50000 ? 'VIP30' : 'VIPPERM') + ' ' + randomCode;
+            const syntax = 'YOKA ' + (amount === 50000 ? 'VIP1M' : 'VIP3M') + ' ' + randomCode;
             document.getElementById('paySyntax').innerText = syntax;
 
             // Generate VietQR URL

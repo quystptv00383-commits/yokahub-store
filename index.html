@@ -1783,15 +1783,15 @@
          SECTION: RESET HWID KHI ĐỔI MÁY (WUKONG HUD STYLE)
          ======================================================== -->
     <section class="hwid-section" id="reset-hwid">
-        <p class="section-kicker">Hỗ trợ thiết bị</p>
-        <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Đổi Máy Hoặc Cập Nhật Executor?</h2>
+        <p class="section-kicker">Hỗ trợ thiết bị & mạng</p>
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Đổi Máy, Cài Lại Executor Hoặc Đổi IP?</h2>
         <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-            Bạn vừa đổi điện thoại mới, đổi máy tính hoặc cài lại Delta/Fluxus? Không cần mua key mới! Nhập mã Key VIP của bạn vào bên dưới để tự động Reset HWID.
+            Mỗi mã Key VIP chỉ cho phép sử dụng trên 1 thiết bị / 1 địa chỉ mạng cố định. Nếu bạn vừa đổi điện thoại mới, đổi máy tính hoặc đổi sang địa chỉ IP khác, hãy nhập mã Key của bạn vào bên dưới để tự động Reset Khóa và đăng nhập lại ngay lập tức.
         </p>
 
         <div class="hwid-row">
-            <input type="text" id="hwidInputKey" class="hwid-input" placeholder="Dán mã Key VIP cần Reset HWID...">
-            <button class="btn-reset-hwid" onclick="handleResetHwid()">🔄 Reset HWID Ngay</button>
+            <input type="text" id="hwidInputKey" class="hwid-input" placeholder="Dán mã Key VIP cần Reset Khóa Thiết Bị & IP...">
+            <button class="btn-reset-hwid" onclick="handleResetHwid()">🔄 Reset Key & IP Ngay</button>
         </div>
         <div id="hwidResult" style="display: none; margin-top: 1rem; padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600;"></div>
     </section>
@@ -2237,7 +2237,7 @@
                 res.style.background = 'rgba(239, 68, 68, 0.15)';
                 res.style.color = '#f87171';
                 res.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-                res.innerText = '⚠️ Vui lòng dán mã Key VIP cần Reset HWID!';
+                res.innerText = '⚠️ Vui lòng dán mã Key VIP cần Reset Thiết Bị & IP!';
                 return;
             }
 
@@ -2245,7 +2245,7 @@
             res.style.background = 'rgba(16, 185, 129, 0.15)';
             res.style.color = '#34d399';
             res.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-            res.innerHTML = '✓ ĐÃ RESET HWID THÀNH CÔNG CHO KEY: <strong>' + key + '</strong><br>Thiết bị cũ đã được giải phóng. Bạn có thể mở Roblox trên máy mới và nhập key để tiếp tục sử dụng!';
+            res.innerHTML = '✓ ĐÃ RESET THIẾT BỊ & IP THÀNH CÔNG CHO KEY: <strong>' + key + '</strong><br>Khóa cũ đã được giải phóng hoàn toàn. Bạn có thể mở Roblox trên thiết bị hoặc IP mới và nhập key để vào game ngay!';
         }
 
     </script>

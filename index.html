@@ -1417,6 +1417,13 @@
             document.getElementById('paymentModal').classList.remove('show');
         }
 
+        // Auto open if #verify or ?verify
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash === '#verify' || window.location.search.includes('verify')) {
+                openVerifyModal();
+            }
+        });
+
         // Close on backdrop click
         window.onclick = function(e) {
             const vModal = document.getElementById('verifyModal');

@@ -1328,9 +1328,26 @@
     <script>
         // CẤU HÌNH LINK VƯỢT LINK (ADMIN CÓ THỂ THAY BẰNG LINK RIÊNG)
         const PROVIDER_URLS = {
-            workink: "https://work.ink/s/yoka_free_key_portal",
-            lootlabs: "https://loot-link.com/s?yoka_free_key_portal"
+            workink: localStorage.getItem('custom_workink_url') || './checkpoint.html?provider=workink',
+            lootlabs: localStorage.getItem('custom_lootlabs_url') || './checkpoint.html?provider=lootlabs'
         };
+
+        // Lắng nghe sự kiện hoàn tất xác minh từ tab Checkpoint
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'yoka_last_verified') {
+                completeVerification();
+            }
+        });
+
+        // Tự động mở modal nhận key nếu quay lại từ link checkpoint (?verified=true)
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('verified') === 'true') {
+                openVerifyModal();
+                selectProvider(params.get('provider') || 'workink');
+                completeVerification();
+            }
+        });
 
         // COPY SCRIPT LOADER
         function copyLoaderCode() {
